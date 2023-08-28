@@ -1,0 +1,1 @@
+{"name":"Local: W02-max_object","url":"d:\\Code\\Phitron-Cpp\\W02-max_object.cpp","tests":[{"id":1685551434443,"input":"tom\n23\ntanvir\n34\ntan\n99","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\Phitron-Cpp\\W02-max_object.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: W02-insert_at_tail","url":"d:\\Code\\Phitron-Cpp\\W02-insert_at_tail.cpp","tests":[{"id":1686625755723,"input":"2 3 4 5 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\Phitron-Cpp\\W02-insert_at_tail.cpp","group":"local","local":true}

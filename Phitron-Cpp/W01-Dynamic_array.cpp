@@ -4,6 +4,7 @@ using namespace std;
 
 int main()
 {
+    // int a[5]; // static array
     int *a; // pointer var. a in stack memory
     a = new int[5]; // address of 0th index in heap memory
 
@@ -29,6 +30,7 @@ int main()
     cout<<endl;
 
 //delete array a[5]
+    // delete a; //a[0] is removed from heap memory
     delete[] a; //arry a[5] is removed from heap memory
 
     cout<<a<<endl; // address of a[0] stored in stack memory

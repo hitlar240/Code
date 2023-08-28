@@ -1,0 +1,1 @@
+{"name":"Local: sort_doubly-list","url":"d:\\Code\\practice\\sort_doubly-list.cpp","tests":[{"id":1687520329716,"input":"5 4 2 3 1 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\practice\\sort_doubly-list.cpp","group":"local","local":true}

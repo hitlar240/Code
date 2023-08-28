@@ -1,0 +1,1 @@
+{"name":"Local: middle_element_linked-list","url":"d:\\Code\\practice\\middle_element_linked-list.cpp","tests":[{"id":1686678661883,"input":"2 4 6 8 10 -1","output":""},{"id":1686678669770,"input":"1 2 3 4 5 6 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\practice\\middle_element_linked-list.cpp","group":"local","local":true}

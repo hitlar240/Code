@@ -1,0 +1,1 @@
+{"name":"Local: W04-queue-doubly-list","url":"d:\\Code\\Phitron-DSA\\W04-queue-doubly-list.cpp","tests":[{"id":1688324119452,"input":"5 \n1 2 3 4 5","output":""},{"id":1688324183670,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\Phitron-DSA\\W04-queue-doubly-list.cpp","group":"local","local":true}

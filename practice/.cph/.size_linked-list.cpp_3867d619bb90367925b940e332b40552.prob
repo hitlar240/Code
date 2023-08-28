@@ -1,0 +1,1 @@
+{"name":"Local: size_linked-list","url":"d:\\Code\\practice\\size_linked-list.cpp","tests":[{"id":1686837312682,"input":"1 2 3 4 5 -1\n1 2 3 4 5 -1","output":""},{"id":1686837330795,"input":"1 2 3 4 5 -1\n3 5 6 8 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\practice\\size_linked-list.cpp","group":"local","local":true}

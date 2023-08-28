@@ -1,0 +1,1 @@
+{"name":"Local: W04-queue-list","url":"d:\\Code\\Phitron-DSA\\W04-queue-list.cpp","tests":[{"id":1688325113607,"input":"5\n1 2 3 4 5","output":""},{"id":1688325206571,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\Phitron-DSA\\W04-queue-list.cpp","group":"local","local":true}

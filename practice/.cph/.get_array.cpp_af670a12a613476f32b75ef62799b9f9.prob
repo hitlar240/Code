@@ -1,0 +1,1 @@
+{"name":"Local: get_array","url":"d:\\Code\\Phitron-Cpp\\practice\\get_array.cpp","tests":[{"id":1684839908600,"input":"3\n1 2 3","output":"1 2 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\Phitron-Cpp\\practice\\get_array.cpp","group":"local","local":true}
