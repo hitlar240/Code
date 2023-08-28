@@ -42,7 +42,7 @@ void bellman_ford(int n, int s) //O(n*m)
     //         //relaxation
     //             // if(weight[u]+w < weight[v])
     //             //     weight[v] = weight[u]+w; 
-    //             weight[v] = min(weight[u]+w, weight[v]); 
+    //             weight[v] = min(weight[u]+w, weight[v]); //relax node v
     //         }
     //     }
 
@@ -55,7 +55,7 @@ void bellman_ford(int n, int s) //O(n*m)
     //         int w = ed.second;
     //         if(weight[u] == INF) continue; // u not from source
     //     //relaxation
-    //         weight[v] = min(weight[u]+w, weight[v]); 
+    //         weight[v] = min(weight[u]+w, weight[v]); //relax node v
     //     }
 
     //edge class
@@ -64,7 +64,8 @@ void bellman_ford(int n, int s) //O(n*m)
             int u = ed.u;
             int v = ed.v;
             int w = ed.w;
-            weight[v] = min(weight[u]+w, weight[v]);
+            if(weight[u] == INF) continue; // u not from source
+            weight[v] = min(weight[u]+w, weight[v]); //relax node v
         }
 
     }
