@@ -1,0 +1,1 @@
+{"name":"Local: W03-2D-grid-DFS","url":"d:\\Documents\\Code\\Phitron-Algorithm\\W03-2D-grid-DFS.cpp","tests":[{"id":1692108330236,"input":"5 8\n########\n#..#...#\n####.#.#\n#..#...#\n########","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Documents\\Code\\Phitron-Algorithm\\W03-2D-grid-DFS.cpp","group":"local","local":true}

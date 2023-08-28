@@ -1,0 +1,1 @@
+{"name":"Local: W03-2D-grid-BFS","url":"d:\\Documents\\Code\\Phitron-Algorithm\\W03-2D-grid-BFS.cpp","tests":[{"id":1692108482638,"input":"5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########","output":"YES\n9\nLDDRRRRRU"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Documents\\Code\\Phitron-Algorithm\\W03-2D-grid-BFS.cpp","group":"local","local":true}

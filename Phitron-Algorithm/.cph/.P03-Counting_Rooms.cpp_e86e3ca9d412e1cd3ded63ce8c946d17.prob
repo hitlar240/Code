@@ -1,0 +1,1 @@
+{"name":"Local: P03-Counting_Rooms","url":"d:\\Documents\\Code\\Phitron-Algorithm\\P03-Counting_Rooms.cpp","tests":[{"id":1692642194912,"input":"5 8\n########\n#..#...#\n####.#.#\n#..#...#\n########","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Documents\\Code\\Phitron-Algorithm\\P03-Counting_Rooms.cpp","group":"local","local":true}

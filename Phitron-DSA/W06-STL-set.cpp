@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+//set -> removes duplicates and sort
     set <int> st;
 
     int n; cin>>n;
@@ -12,16 +13,24 @@ int main()
         st.insert(x); //O(log(N))
     }
 
-//remove duplicates and sort
+//iterator
     for(auto it=st.begin(); it!=st.end(); it++) //
     {
         cout<<*it<<" ";
     }
     cout<<endl;
 
+// //range based for loop
+//     for(int v : st)
+//     {
+//         cout<<v<<" ";
+//     }
+//     cout<<endl;
+
 //search
     cout<<st.count(0)<<endl; //O(log(N))
     cout<<st.count(10)<<endl;
+
 
 return 0;
 }

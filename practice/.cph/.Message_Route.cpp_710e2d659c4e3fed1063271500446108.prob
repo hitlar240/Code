@@ -1,0 +1,1 @@
+{"name":"Local: Message_Route","url":"d:\\Documents\\Code\\practice\\Message_Route.cpp","tests":[{"id":1692096755167,"input":"5 5\n1 2\n1 3\n1 4\n2 3\n5 4","output":""},{"id":1692096758896,"input":"4 2\n1 2\n3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Documents\\Code\\practice\\Message_Route.cpp","group":"local","local":true}
