@@ -57,7 +57,7 @@ int main()
     {
         int u,v,w; cin>>u>>v>>w;
         weight[u][v] = w;
-        weight[v][u] = w;
+        // weight[v][u] = w;
     }
 
     // print();
