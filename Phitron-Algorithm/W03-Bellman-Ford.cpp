@@ -1,15 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef pair<int,int> pr;
+class Edge
+{
+    public:
+    int u,v,w;
+    Edge(int a, int b, int w)
+    {
+        u = a;
+        v = b;
+        this->w = w; 
+    }
+};
 
 const int N = 1e3+7;
 const int INF = INT_MAX;
 
-vector <pr> adj[N]; //adjecency list
-// vector <pair<pr,int>> adj; //edges list
+typedef pair<int,int> pr;
 
-vector <int> weight(N,INF);
+// vector <pr> adj[N]; //adjecency list
+// vector <pair<pr,int>> adj; //edges list
+vector <Edge> adj;
+
+vector <int> weight(N,INF); //initial weight INF
 
 
 void bellman_ford(int n, int s) //O(n*m)
@@ -18,21 +31,20 @@ void bellman_ford(int n, int s) //O(n*m)
 
     for(int i=1; i<=n-1; i++) //O(n-1)
     {
-    //adjecency list:
-        for(int u=1; u<=n; u++) //O(m)
-        {
-            for(pr vpr : adj[u])
-            {
-                int v = vpr.first;
-                int w = vpr.second;
-                if(weight[u] == INF) continue; // u not from source
-            
-            //relaxation
-                // if(weight[u]+w < weight[v])
-                //     weight[v] = weight[u]+w; 
-                weight[v] = min(weight[u]+w, weight[v]); 
-            }
-        }
+    // //adjecency list:
+    //     for(int u=1; u<=n; u++) //O(m)
+    //     {
+    //         for(pr vpr : adj[u])
+    //         {
+    //             int v = vpr.first;
+    //             int w = vpr.second;
+    //             if(weight[u] == INF) continue; // u not from source     
+    //         //relaxation
+    //             // if(weight[u]+w < weight[v])
+    //             //     weight[v] = weight[u]+w; 
+    //             weight[v] = min(weight[u]+w, weight[v]); 
+    //         }
+    //     }
 
     // //edges list:
     //     for(auto ed : adj) //O(m)
@@ -42,9 +54,18 @@ void bellman_ford(int n, int s) //O(n*m)
     //         int v = edpr.second;
     //         int w = ed.second;
     //         if(weight[u] == INF) continue; // u not from source
-    //         if(weight[u]+w < weight[v])
-    //             weight[v] = weight[u]+w; //relaxation
+    //     //relaxation
+    //         weight[v] = min(weight[u]+w, weight[v]); 
     //     }
+
+    //edge class
+        for(Edge ed : adj)
+        {
+            int u = ed.u;
+            int v = ed.v;
+            int w = ed.w;
+            weight[v] = min(weight[u]+w, weight[v]);
+        }
 
     }
 }
@@ -55,8 +76,11 @@ int main()
     while(m--)
     {
         int u,v,w; cin>>u>>v>>w;
-        adj[u].push_back({v,w}); //adj list
+        // adj[u].push_back({v,w}); //adj list
         // adj.push_back({{u,v},w}); //edges list
+
+        Edge ed(u,v,w);
+        adj.push_back(ed); //edge class
     }
 
     int s; cin>>s;
