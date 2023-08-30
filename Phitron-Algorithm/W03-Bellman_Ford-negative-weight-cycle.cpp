@@ -34,7 +34,7 @@ bool Bellman_Ford(int n, int s)
         }
     }
 
-    return relax;
+    return !relax; //at nth iteration
 }
 
 void print(int n)
@@ -55,9 +55,9 @@ int main()
     int s; cin>>s;
 
     if(Bellman_Ford(n,s))
-        cout<<"Negative weight cycle!\n";
-    else
         print(n);
+    else
+        cout<<"Negative weight cycle!\n";
 
 return 0;
 }

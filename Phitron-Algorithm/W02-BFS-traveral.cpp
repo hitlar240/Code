@@ -41,6 +41,8 @@ int main()
     }
 
     bfs(1); //O(n+m)
+    //sparse graph: O(n) | m ~ n
+    //complete graph: O(n^2) | m ~ n(n-1)/2
 
 // level -> shortest distance from root
 //output

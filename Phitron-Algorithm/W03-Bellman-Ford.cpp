@@ -65,7 +65,8 @@ void bellman_ford(int n, int s) //O(n*m)
             int v = ed.v;
             int w = ed.w;
             if(weight[u] == INF) continue; // u not from source
-            weight[v] = min(weight[u]+w, weight[v]); //relax node v
+        //relax node v
+            weight[v] = min(weight[u]+w, weight[v]); 
         }
 
     }

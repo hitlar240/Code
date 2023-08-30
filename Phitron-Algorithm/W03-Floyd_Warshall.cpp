@@ -5,7 +5,7 @@ const int N = 1e3+5;
 const int INF = INT_MAX;
 
 int n,m;
-long long int weight[N][N];
+long long int weight[N][N]; //adjecency matrix
 
 void initialize() //O(n^2)
 {
@@ -31,9 +31,10 @@ void print() //O(n^2)
         }
         cout<<endl;
     }
+    cout<<endl;
 }
 
-void Floyd_Warshall() //O(n^3)
+bool Floyd_Warshall() //O(n^3)
 {
     for(int k=1; k<=n; k++) //level 1,2,3,...,n
     {
@@ -41,10 +42,16 @@ void Floyd_Warshall() //O(n^3)
         {
             for(int j=1; j<=n; j++) //to
             {
+            //relax edge //through each to every nodes
                 weight[i][j] = min(weight[i][j], weight[i][k]+weight[k][j]);
+            
+            // from i to i weight must be 0
+                if(i==j && weight[i][j] < 0) 
+                    return false; //negative weight cyle!
             }
         }
     }
+    return true;
 }
 
 int main()
@@ -60,11 +67,12 @@ int main()
         // weight[v][u] = w;
     }
 
-    // print();
-
-    Floyd_Warshall(); //O(n^3)
-
     print();
+
+    if(Floyd_Warshall()) //O(n^3)
+        print();
+    else
+        cout<<"negative weight cyle!\n";
 
 return 0;
 }

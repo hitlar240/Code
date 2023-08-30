@@ -78,7 +78,9 @@ int main()
 
 //SSSP: single source shortest path
     int s; cin>>s;
-    dijkstra(s); //Dijkstra Algorithm
+    dijkstra(s); //O(n+m)
+    //sparse graph: O(n) | m ~ n
+    //complete graph: O(n^2) | m ~ n(n-1)/2
 
     for(int i=1; i<=n; i++) //shortest distance weighted graph
     {
