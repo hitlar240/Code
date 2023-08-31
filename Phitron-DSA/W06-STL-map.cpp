@@ -23,9 +23,14 @@ int main()
     // cout<<mp["nai"]<<endl; 
 
 
-    for(auto it=mp.begin(); it!=mp.end(); it++) // no order (hashing)
+    // for(auto it=mp.begin(); it!=mp.end(); it++) // no order (hashing)
+    // {
+    //     cout<<it->first<<" "<<it->second<<endl; //O(log(N))
+    // }
+
+    for(pair<string,int> pr : mp)
     {
-        cout<<it->first<<" "<<it->second<<endl; //O(log(N))
+        cout<<pr.first<<" "<<pr.second<<endl;
     }
 
 return 0;
