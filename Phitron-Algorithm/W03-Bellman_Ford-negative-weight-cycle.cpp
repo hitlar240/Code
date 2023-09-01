@@ -7,9 +7,9 @@ const int INF = INT_MAX;
 typedef pair<int,int> pr;
 
 vector <pr> adj[N];
-vector <int> weight(N,INF); //initial weight INF
+vector <long long int> weight(N,INF); //initial weight INF
 
-bool Bellman_Ford(int n, int s)
+bool Bellman_Ford(int n, int s) //O(n*m)
 {
     bool relax;
     weight[s] = 0; //source

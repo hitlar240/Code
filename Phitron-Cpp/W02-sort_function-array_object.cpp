@@ -28,6 +28,7 @@ bool cmpR(stu a, stu b)
     // else return false;
     return a.roll < b.roll;
 }
+
 //compare function (define after class)
 bool cmpM(stu a, stu b)
 {
@@ -64,7 +65,7 @@ int main()
 
 //sort(from,to,comparison_fun) //O(nlog(n))
     // sort(s,s+n,cmpR);
-    // sort(s,s+n,cmpM);
+    sort(s,s+n,cmpM);
 
     for(int i=0; i<n; i++)
     {

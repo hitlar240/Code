@@ -57,7 +57,6 @@ int main()
 
     for(int i=0; i<26; i++)
     {
-        // cout<<c<<cnt[c-'a'].count<<endl;
         if(obj[i].count > 0)
             while(obj[i].count--)
                 cout<<obj[i].chr;

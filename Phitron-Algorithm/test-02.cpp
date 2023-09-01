@@ -1,65 +1,84 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef pair<int,int> pr;
-
-const int INF = INT_MAX;
-const int N = 1e3+9; 
-
-vector <pr> adj[N];
-bool visited[N];
-vector <long long int> weight(N,INF);
-
-void dijkstra(int s)
+class Edge
 {
-    priority_queue <pr, vector<pr>, greater<pr>> pq;
-    weight[s] = 0;
-    pq.push({weight[s],s});
-
-    while(!pq.empty())
+    public:
+    int u,v,w;
+    Edge(int u, int v, int w)
     {
-        int u = pq.top().second;
-        pq.pop();
-        visited[u] = true;
+        this->u = u;
+        this->v = v;
+        this->w = w;
+    }
+};
 
-        for(pr vpr : adj[u])
-        {
-            int v = vpr.first;
-            int w = vpr.second;
+bool cmp(Edge a, Edge b)
+{
+    return a.w < b.w;
+}
 
-            if(visited[v]) continue;
-            if(weight[u]+w < weight[v])
-            {
-                weight[v] = weight[u] + w;
-                pq.push({weight[v],v});
-            }
-        }
+const int N = 1e5+3;
+vector <Edge> edge; //input
+
+vector <int> parent(N, -1); //inisialize with -1
+vector <int> parentSize(N, 1);
+
+long long int cost;
+
+
+int find(int c)
+{
+    while(parent[c] != -1)
+    {
+        c = parent[c];
+    }
+    return c;
+}
+
+void dsu_union(int u, int v)
+{
+    int ldrU = find(u);
+    int ldrV = find(v);
+
+    if(parentSize[ldrU] > parentSize[ldrV])
+    {
+        parent[ldrV] = ldrU;
+        parentSize[ldrU] += parentSize[ldrV];
+    }
+    else
+    {
+        parent[ldrU] = ldrV;
+        parentSize[ldrV] += parentSize[ldrU];
+    }
+}
+
+void Kruskal()
+{
+    sort(edge.begin(),edge.end(),cmp);
+    for(Edge ed : edge)
+    {
+        if(find(ed.u) == find(ed.v)) continue;
+        dsu_union(ed.u,ed.v);
+        cost += ed.w;
     }
 }
 
 int main()
 {
-    int n,m; cin>>n>>m;
-    while(m--)
+    int n,e; cin>>n>>e;
+    while(e--)
     {
-        int a,b,w;
-        cin>>a>>b>>w;
-        adj[a].push_back({b,w});
+        int a,b,w; cin>>a>>b>>w;
+        edge.push_back(Edge(a,b,w));
     }
 
-    int s; cin>>s;
-    dijkstra(s);
+    Kruskal();
 
-    int t; cin>>t;
-    while(t--)
-    {
-        int d,dw; cin>>d>>dw;
-
-        if(weight[d] <= dw)
-            cout<<"YES\n";
-        else
-            cout<<"NO\n";
-    }
+    if(parentSize[find(1)] == n)
+        cout<<cost<<endl;
+    else
+        cout<<-1<<endl;
 
 return 0;
 }

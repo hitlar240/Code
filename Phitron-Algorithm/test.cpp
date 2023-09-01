@@ -3,63 +3,60 @@ using namespace std;
 
 typedef pair<int,int> pr;
 
+const int N = 1e3+5;
 const int INF = INT_MAX;
-const int N = 1e3+3;
-
 vector <pr> adj[N];
-bool visited[N];
-vector <int> weight(N,INF);
+vector <long long int> weight(N, INF);
 
-void dijkstra(int s)
+bool Bellman_Ford(int n, int s)
 {
-    priority_queue <pr, vector<pr>, greater<pr>> pq;
     weight[s] = 0;
-    pq.push({weight[s],s});
-
-    while(!pq.empty())
+    bool relax;
+    for(int i=1; i<=n; i++)
     {
-        int u = pq.top().second;
-        pq.pop();
-        visited[u] = true;
-
-        for(pr vnd : adj[u])
+        relax = false;
+        for(int u=1; u<=n; u++)
         {
-            int v = vnd.first;
-            int w = vnd.second;
-
-            if(visited[v]) continue;
-            if(weight[u]+w < weight[v])
+            if(weight[u] == INF) continue;
+            for(pr ed : adj[u])
             {
-                weight[v] = weight[u] + w;
-                pq.push({weight[v],v});
+                int v = ed.first;
+                int w = ed.second;
+                if(weight[v] > weight[u]+w)
+                {
+                    weight[v] = weight[u]+w;
+                    relax = true;
+                }
             }
         }
     }
-
+    return !relax; // at nth iteration
 }
 
 int main()
 {
-    int n,e; cin>>n>>e;
-    while(e--)
+    int n,m; cin>>n>>m;
+    while(m--)
     {
-        int a,b,w; cin>>a>>b>>w;
-        adj[a].push_back({b,w});
-        // adj[b].push_back({a,w});
+        int u,v,w; cin>>u>>v>>w;
+        adj[u].push_back({v,w});
     }
     int s; cin>>s;
-
-    dijkstra(s);
-
-    int t; cin>>t;
-    while(t--)
+    if(Bellman_Ford(n,s))
     {
-        int d,dw; cin>>d>>dw;
-        if(weight[d]<=dw)
-            cout<<"YES\n";
-        else
-            cout<<"NO\n";
+        int t; cin>>t;
+        while(t--)
+        {
+            int d; cin>>d;
+            if(weight[d] == INF)
+                cout<<"Not Possible\n";
+            else
+                cout<<weight[d]<<endl;
+        }
     }
+    else
+        cout<<"Negative Cycle Detected\n";
+
 
 return 0;
 }

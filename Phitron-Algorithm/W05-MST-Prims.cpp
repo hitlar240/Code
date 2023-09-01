@@ -34,7 +34,7 @@ void Prims(int s)
 {
 //min-heap 
     priority_queue <Edge, vector<Edge>, cmp> pq;
-    pq.push(Edge(s,s,0));
+    pq.push(Edge(s,s,0)); // (1, 1, 0)
     while(!pq.empty())
     {
         int u = pq.top().u; //from

@@ -2,7 +2,7 @@
 using namespace std;
 
 const int N = 1e3+5;
-const int INF = INT_MAX;
+const long long int INF = 1e16+3;
 
 int n,m;
 long long int weight[N][N]; //adjecency matrix
