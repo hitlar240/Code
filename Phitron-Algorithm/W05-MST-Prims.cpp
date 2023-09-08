@@ -30,23 +30,23 @@ bool visited[N]; // initially false
 vector <Edge> edgeList; //array of object
 
 
-void Prims(int s)
+void Prims(int s) //O(m^2)
 {
 //min-heap 
     priority_queue <Edge, vector<Edge>, cmp> pq;
-    pq.push(Edge(s,s,0)); // (1, 1, 0)
-    while(!pq.empty())
+    pq.push(Edge(s,s,0)); // (1, 1, 0) | O(log(m))
+    while(!pq.empty()) //O(m)
     {
         int u = pq.top().u; //from
         int v = pq.top().v; //to
         int w = pq.top().w; //weight
-        pq.pop();
+        pq.pop(); // O(log(m))
     //u = v = 1 will be visited first
         if(visited[v]) continue; 
         visited[v] = true;
         edgeList.push_back(Edge(u,v,w));
 
-        for(pr chld : adj[v])
+        for(pr chld : adj[v]) //o(m)
         {
             int a = v; //from
             int b = chld.first; //to
@@ -55,8 +55,9 @@ void Prims(int s)
             pq.push(Edge(a,b,c));
         }
     }
+
     edgeList.erase(edgeList.begin()); //to erage edge 1-1 0
-    for(Edge ed : edgeList)
+    for(Edge ed : edgeList) //O(m)
     {
         cout<<ed.u<<"-"<<ed.v<<" "<<ed.w<<endl;
     }
@@ -74,7 +75,7 @@ int main()
 
     cout<<"Edge List:"<<endl;
     int s; cin>>s;
-    Prims(s);
+    Prims(s); //O(m^2)
 
 return 0;
 }
