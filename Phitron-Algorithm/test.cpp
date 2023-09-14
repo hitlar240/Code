@@ -1,62 +1,42 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#define INF 1e9
 using namespace std;
-
-typedef pair<int,int> pr;
-
-const int N = 1e3+5;
-const int INF = INT_MAX;
-vector <pr> adj[N];
-vector <long long int> weight(N, INF);
-
-bool Bellman_Ford(int n, int s)
-{
-    weight[s] = 0;
-    bool relax;
-    for(int i=1; i<=n; i++)
-    {
-        relax = false;
-        for(int u=1; u<=n; u++)
-        {
-            if(weight[u] == INF) continue;
-            for(pr ed : adj[u])
-            {
-                int v = ed.first;
-                int w = ed.second;
-                if(weight[v] > weight[u]+w)
-                {
-                    weight[v] = weight[u]+w;
-                    relax = true;
-                }
-            }
-        }
-    }
-    return !relax; // at nth iteration
-}
 
 int main()
 {
-    int n,m; cin>>n>>m;
-    while(m--)
+    int n,s; cin>>n>>s;
+    int val[n+1];
+    for(int i=1; i<=n; cin>>val[i++]);
+
+    int memo[n+1][s+1];
+    memo[0][0] = 0; //initialize 0th row
+    for(int j=1; j<=s; memo[0][j++]=INF);
+
+    for (int i=1; i<=n; i++)
     {
-        int u,v,w; cin>>u>>v>>w;
-        adj[u].push_back({v,w});
-    }
-    int s; cin>>s;
-    if(Bellman_Ford(n,s))
-    {
-        int t; cin>>t;
-        while(t--)
+        for (int r= 0; r<= s; r++)
         {
-            int d; cin>>d;
-            if(weight[d] == INF)
-                cout<<"Not Possible\n";
+            if (val[i] <= r)
+            {
+                memo[i][r] = min(1 + memo[i][r-val[i]], memo[i-1][r]);
+            }
             else
-                cout<<weight[d]<<endl;
+            {
+                memo[i][r] = memo[i - 1][r];
+            }
         }
     }
-    else
-        cout<<"Negative Cycle Detected\n";
-
-
-return 0;
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= s; j++)
+        {
+            cout << memo[i][j] << " ";
+        }
+        cout << endl;
+    }
+    // if (dp[n][s] == INT_MAX - 1)
+    //     cout << "Not Possible" << endl;
+    // else
+        cout << memo[n][s] << endl;
+    return 0;
 }

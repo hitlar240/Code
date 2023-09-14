@@ -10,13 +10,13 @@ ll memo[N][W]; //initially 0
 int main()
 {
     int n; cin>>n; //number of items
+    int w; cin>>w; //Knapscak capacity
     int val[n+1];
     int weight[n+1];
     for(int i=1; i<=n; i++)
     {
         cin>>val[i]>>weight[i];
     }
-    int w; cin>>w; //Knapscak capacity
 
 
     for(int i=1; i<=n; i++) //O(n*w)

@@ -14,7 +14,10 @@ int main()
         cin>>val[i];
     }
 
+//Bottom Up:
+    bool memo[n+1][s+1];
     memo[0][0] = true; // s=0 is possible if there is no value
+    for(int j=1; j<=s; memo[0][j++]=false); //initialize 0th row 
     
     for(int i=1; i<=n; i++)
     {
