@@ -8,11 +8,13 @@
 
 
 """ arguments with key """
-# def name(first, last, **kargs): 
-#     # print(kargs["title"])
-#     for key,val in kargs.items():
-#         # print(key, val)
-#         print(f'{key}: {val}')
+def name(first, last, **kargs): 
+    # print(kargs["title"])
+    for key,val in kargs.items():
+        print(key, val)
+        # print(f'{key}: {val}')
+
+nm = name("tom", 'al', title="Khan", rank='Boss')
 
 #     # return kargs["title"] + ' ' + first + ' ' + last + ' ' + kargs['rank']
 #     return f'{kargs["title"]} {first} {last} {kargs["rank"]}'
@@ -22,8 +24,8 @@
 # print(nm)
 
 
-def name(first, last, *args, **kargs):
-    return f'{kargs["title"]} {first} {args} {last} {kargs["rank"]}'
+# def name(first, last, *args, **kargs):
+#     return f'{kargs["title"]} {first} {args} {last} {kargs["rank"]}'
 
-nm = name("tom", 'al', '72', '240', title="Khan", rank='Boss')
-print(nm)
+# nm = name("tom", 'al', '72', '240', title="Khan", rank='Boss')
+# print(nm)
