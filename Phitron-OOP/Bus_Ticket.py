@@ -42,7 +42,7 @@ class Admin: #(Bus,User):
 admin = Admin("Ena",'tom','123')
 
 while(True):
-    print("-------------------------------")
+    print("---------------------------------------------")
 
     choise = input("admin/user? ")
 
@@ -157,7 +157,7 @@ while(True):
 
                             else:
                                 break
-                            
+
                 if flag == False:
                     print("Worng email or passward!!!")
 
