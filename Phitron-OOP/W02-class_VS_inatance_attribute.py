@@ -1,6 +1,6 @@
 class Shop:
 
-    # cart = [] # calss attribute | shared within the class
+    cart = [] # calss attribute | shared within the class
 
     def __init__(self, name):
         name = 'hmm'
