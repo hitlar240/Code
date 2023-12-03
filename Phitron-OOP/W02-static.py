@@ -1,10 +1,17 @@
 # static attribute (class attribute) shared attribute among the instances
 # self - instance
+# cls - class
+# instance attributes cannot be accessed in static method 
+# class attributes can be accessed in instance method 
+
+# @staticmethod - might or might not be related to the class 
+# instancemethod - affect the instance | (slef) as parameter
+# @classmethod - affect the actual class | (cls) as parameter
 
 
 class Shop:
-    name = 'goriber dokan' # class attribute | static attribute
-    item = ['alu','potol','mula','begun'] # (common) shared attribute among the instances
+    Name = 'goriber dokan' # class attribute | static attribute
+    item = ['ALU','POTOL','MULA','BEGUN'] # (common) shared attribute among the instances
     sold_item = []
     revenue = 0
 
@@ -12,55 +19,61 @@ class Shop:
         self.name = name
         self.item = []
 
-    @staticmethod
-    def Total(a,b): # class|static method
-        print(a+b)
-
-    @classmethod
-    def total(self,a,b): # instance method
-        print(a+b)
-
-    # @classmethod
+    # instance method
     def purchase(self,what,price): # instance method
         self.item.append(what) # add to instace item 
-        Shop.revenue += price # class revenue
+        Shop.revenue += price # class attribute (revenue)
+        Shop.sold_item.append(what)
+
+    @staticmethod
+    def Total(*price): # class|static method
+        # print(self.name) # no self parameter
+        print('Total = ',sum(price))
+
+    @classmethod
+    def change_shop_name(cls, name):
+        cls.Name = name
 
 
+
+
+print('Shop Name: ',Shop.Name) # # instance attribute
+print('Available Items: ',Shop.item)
 
 fokir = Shop('tom')
+print('Customer: ',fokir.name) # class
 
-Shop.Total(9,13)
-# Shop.total(9,13)
-# fokir.Total(3,6)
-fokir.total(3,6)
-
-print(fokir.name) # class
-print(Shop.name) # # instance attribute
-
-print(Shop.item)
-print(fokir.item)
+print(fokir.name+'\'s Cart: ',fokir.item)
 
 Shop.purchase(fokir,'aluu',12) # self = fokir
 # fokir.purchase('aluu',12)
 fokir.purchase('begun',23)
 fokir.purchase('mula',7)
-print(fokir.item)
+print(fokir.name+'\'s Cart: ',fokir.item)
 
-print(Shop.item)
+Shop.Total(12,23,7)
+fokir.Total(12,23,7)
 
-print(Shop.revenue)
+print('Total Revenue: ',Shop.revenue)
 
 
+
+print('Available Items: ',Shop.item)
 
 miskin = Shop('Tanvir')
 miskin.purchase('potol',17)
 miskin.purchase('alu',12)
 miskin.purchase('tomato',21)
 
-print(Shop.item)
-print(miskin.item)
+print(miskin.name+'\'s Cart: ',miskin.item)
 
-print(Shop.revenue)
-print(Shop.sold_item)
+miskin.Total(17,12,21)
+Shop.Total(42,17,12,21)
+
+print('Total Revenue: ',Shop.revenue)
+print('Sold Items: ',Shop.sold_item)
 
 
+# fokir.change_shop_name('abuler dukan') # cls = Shop
+Shop.change_shop_name('abuler dukan')
+print('Shop Name: ',Shop.Name)
