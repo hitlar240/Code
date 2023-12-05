@@ -1,3 +1,5 @@
+// Stack using (Singly Linked List)
+
 #include<iostream>
 using namespace std;
 
@@ -41,7 +43,10 @@ class Stack
         if(sz != 0)
             return head->val;
         else
-            return -1; //empty
+        {
+            cout << "Empty!" << endl;
+            return -1;
+        }
     }
     void pop()
     {

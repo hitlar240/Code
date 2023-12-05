@@ -1,4 +1,4 @@
-// Doubly Linked List (Insertion)
+// Doubly Linked List (Deletion)
 
 #include<iostream>
 using namespace std;
@@ -27,6 +27,7 @@ void print_normal(Node *head)
     }
     cout << endl;
 }
+
 void print_reverse(Node *tail)
 {
     Node *tmp = tail;
@@ -36,20 +37,6 @@ void print_reverse(Node *tail)
         tmp = tmp->prev;
     }
     cout << endl;
-}
-
-void insert_at_position(Node *head, int pos, int val)
-{
-    Node *newNode = new Node(val);
-    Node *tmp = head;
-    for (int i = 1; i <= pos - 1; i++)
-    {
-        tmp = tmp->next;
-    }
-    newNode->next = tmp->next;
-    tmp->next = newNode;
-    newNode->next->prev = newNode;
-    newNode->prev = tmp;
 }
 
 int size(Node *head)
@@ -64,34 +51,44 @@ int size(Node *head)
     return cnt;
 }
 
-void insert_head(Node *&head, Node *&tail, int val)
+void delete_from_position(Node *head, int pos)
 {
-    Node *newNode = new Node(val);
-    if (head == NULL)
+    Node *tmp = head;
+    for (int i = 1; i <= pos - 1; i++)
     {
-        head = newNode;
-        tail = newNode;
-        return;
+        tmp = tmp->next;
     }
-    newNode->next = head;
-    head->prev = newNode;
-    head = newNode;
+    Node *deleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+    tmp->next->prev = tmp;
+    delete deleteNode;
 }
 
-void insert_tail(Node *&head, Node *&tail, int val)
+void delete_tail(Node *&head, Node *&tail)
 {
-    Node *newNode = new Node(val);
+    Node *deleteNode = tail;
+    tail = tail->prev;
+    delete deleteNode;
     if (tail == NULL)
     {
-        head = newNode;
-        tail = newNode;
+        head = NULL;
         return;
     }
-    tail->next = newNode;
-    newNode->prev = tail;
-    tail = tail->next;
+    tail->next = NULL;
 }
 
+void delete_head(Node *&head, Node *&tail)
+{
+    Node *deleteNode = head;
+    head = head->next;
+    delete deleteNode;
+    if (head == NULL)
+    {
+        tail = NULL;
+        return;
+    }
+    head->prev = NULL;
+}
 
 int main()
 {
@@ -109,25 +106,26 @@ int main()
     b->next = c;
     c->prev = b;
 
-    int pos, val;
-    cin >> pos >> val;
+    int pos;
+    cin >> pos;
 
-    if (pos > size(head))
+    if (pos >= size(head))
     {
         cout << "Invalid" << endl;
     }
     else if (pos == 0)
     {
-        insert_head(head, tail, val);
+        delete_head(head, tail);
     }
-    else if (pos == size(head))
+    else if (pos == size(head) - 1)
     {
-        insert_tail(head, tail, val);
+        delete_tail(head, tail);
     }
     else
     {
-        insert_at_position(head, pos, val);
+        delete_from_position(head, pos);
     }
+
     print_normal(head);
     print_reverse(tail);
 

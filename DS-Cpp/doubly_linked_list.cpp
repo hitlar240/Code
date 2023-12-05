@@ -5,12 +5,12 @@ using namespace std;
 
 class Node
 {
-    public:
+    public: // access modifier
     int x;
-    Node* next; //pointer of node
-    Node* prev; //pointer of node
+    Node* next; // pointer of next node object
+    Node* prev; // pointer of previous node object
 
-    Node(int val) //constructor
+    Node(int val) // constructor
     {
         x = val;
         next = NULL;
@@ -26,12 +26,10 @@ int main()
     Node box3(3);
 
 //links
-    box1.prev = NULL;
     box1.next = &box2;
     box2.prev = &box1;
     box2.next = &box3;
     box3.prev = &box2;
-    box3.next = NULL;
 
     cout << box1.x << " "; //box1
     cout << (*box1.next).x << " "; //box2
@@ -44,17 +42,17 @@ int main()
 
 
 //dynamic object
-    Node* box4 = new Node(4);
+    Node* box4 = new Node(4); // box4 is a pointer variable of node object
     Node* box5 = new Node(5);
     Node* box6 = new Node(6);
 
 //links
-    box4->prev = NULL;
+    box3.next = box4; // box4 is a pointer
+    box4->prev = &box3; // box3 is a node object
     box4->next = box5;
     box5->prev = box4;
     box5->next = box6;
     box6->prev = box5;
-    box6->next = NULL;
 
     cout << box4->x << " "; //box4
     cout << box4->next->x << " "; //box5
