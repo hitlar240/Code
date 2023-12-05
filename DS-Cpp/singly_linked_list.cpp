@@ -42,8 +42,8 @@ int main()
     box4->next = box5; // -> 
     box5->next = box6;
 
-    cout << box3.next->x << endl; // value if box4
-    // cout << box4->x << endl; // value if box4
+    cout << box3.next->x << endl; // value in box4
+    // cout << box4->x << endl; // value in box4
     cout << box4->next->x << endl; // box5
     cout << box4->next->next->x << endl; // box6
 
