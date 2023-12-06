@@ -23,7 +23,7 @@ void bubble(int a[], int n) //O(n^2)
 
 int main()
 {
-    int n; cin>>n; 
+    int n; cout<<"N = "; cin>>n;
     int arr[n]; //array of size n
     for(int i=0; i<n; i++)
     {
@@ -34,7 +34,7 @@ int main()
 
     for(int i=0; i<n; i++)
         cout<<arr[i]<<" ";
-    
+
     cout<<endl;
 
 return 0;
