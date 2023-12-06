@@ -10,18 +10,23 @@ Abstract class:
     contains one or more abstract methods
     blueprint for other child classes
     enforce all derived class to have abstruct method
-    prevent a user from creating an object of that class
+    prevent a user from creating an object of abstruct class
     
  """
 class Animal(ABC): # parent class
 
+    def __init__(self):
+        super().__init__()
+
     @abstractmethod # decorator
     def eat(self):
-        print('khida lagse...')
+        # print('khida lagse...')
+        raise NotImplementedError
 
     @abstractmethod # enforce all derived class to have a eat method
     def move(self):
-        print('douRUN... ')
+        # print('douRUN... ')
+        raise NotImplementedError
 
 
 class Monkey(Animal): # derived class
@@ -46,11 +51,12 @@ class Dog(Animal):
         self.food = food
         print(f'{self.name} is eating {self.food}')
 
-    def move(self,where):
-        self.where = where
-        print(f'{self.name} is seating on the {self.where}')
+    # def move(self,where):
+    #     self.where = where
+    #     print(f'{self.name} is seating on the {self.where}')
 
-
+# ani = Animal() 
+# Can't instantiate abstract class Animal with abstract methods eat, move
 
 monty = Monkey("bandor")
 monty.eat('banana')

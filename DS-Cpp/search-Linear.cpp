@@ -13,19 +13,19 @@ bool Linear(int a[], int s, int n)
 
 int main()
 {
-    int n; cin>>n;
+    int n; cout<<"N = "; cin>>n;
     int arr[n];
     for(int i=0; i<n; i++)
     {
         cin>>arr[i];
     }
 
-    int s; cin>>s;
+    int s; cout<<"S = "; cin>>s;
 
     if(Linear(arr,s,n)==true)
         cout<<"Found\n";
     else
         cout<<"Not Found!\n";
 
-return 0;    
+return 0;
 }

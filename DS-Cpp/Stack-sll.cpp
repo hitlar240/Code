@@ -69,7 +69,7 @@ int main()
     // s.push(2);
     // s.push(3);
     // cout<<s.top()<<" "; //3
-    // s.pop(); 
+    // s.pop();
     // cout<<s.top()<<" "; //2
     // s.pop();
     // cout<<s.top()<<" "; //1
@@ -78,7 +78,7 @@ int main()
     // s.pop(); //empty
 
 
-    int n; cin>>n;
+    int n; cout<<"N = "; cin>>n;
     while(n--)
     {
         int x; cin>>x;
