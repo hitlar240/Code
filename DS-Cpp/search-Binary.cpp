@@ -44,14 +44,14 @@ void selection_sort(int a[], int n)
 
 int main()
 {
-    int n; cin>>n;
+    int n; cout<<"Number of values = "; cin>>n;
     int arr[n];
     for(int i=0; i<n; i++)
     {
         cin>>arr[i];
     }
 
-    int s; cin>>s;
+    int s; cout<<"Search for = "; cin>>s;
     // sort(arr,arr+n);
     selection_sort(arr,n);
 
