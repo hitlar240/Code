@@ -3,7 +3,7 @@ using namespace std;
 
 bool Linear(int a[], int s, int n)
 {
-    for(int i=0; i<n; i++)
+    for(int i=0; i<n; i++) 
     {
         if(a[i] == s)
             return true;
