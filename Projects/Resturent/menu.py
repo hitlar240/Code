@@ -1,4 +1,4 @@
-from food import Burger,Pizza,Drink,Snak
+from food import * #Burger,Pizza,Drink,Snak
 
 class Menu:
     def __init__(self) -> None:
@@ -21,7 +21,7 @@ class Menu:
         pass
 
     def show_menu(self):
-        print('----------------------------------Food-Menu----------------------------------')
+        print('\n----------------------------------Food-Menu----------------------------------\n')
         for item in menu.burgers:
             print(item)
         for item in menu.pizzas:
@@ -30,7 +30,7 @@ class Menu:
             print(item)
         for item in menu.drinks:
             print(item)
-        print('-----------------------------------------------------------------------------')
+        print('\n-----------------------------------------------------------------------------\n')
 
 
 
@@ -45,6 +45,6 @@ menu.add_item(Snak('Singara',10))
 menu.add_item(Snak('Somucha',10))
 
 
-menu.show_menu()
+# menu.show_menu()
 
         

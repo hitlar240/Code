@@ -13,7 +13,7 @@ class Food: # super class
         return self.__price
     
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}:{self.name} Price:{self.price}/=\n'
+        return f'# {self.__class__.__name__}:{self.name} Price:{self.price}/='
     
 
 # sub classes
@@ -23,7 +23,7 @@ class Burger(Food):
         super().__init__(name, price)
     
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}:{self.name} Price:{self.price}/= Ingradiants:{self.__ingrdiants}\n'
+        return f'# {self.__class__.__name__}:{self.name} Price:{self.price}/= Ingradiants:{self.__ingrdiants}'
     
 class Pizza(Food):
     def __init__(self, name: str, price: int, size:int, toppings: list) -> None:
@@ -32,14 +32,14 @@ class Pizza(Food):
         super().__init__(name, price)
     
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}:{self.name} Price:{self.price}/= Size:{self.__size}" Toppings:{self.__toppings}\n'
+        return f'# {self.__class__.__name__}:{self.name} Price:{self.price}/= Size:{self.__size}" Toppings:{self.__toppings}'
     
 class Snak(Food):
     def __init__(self, name: str, price: int) -> None:
         super().__init__(name, price)
     
     # def __repr__(self) -> str:
-    #     return f'Name:{self.name} Price:{self.price}\n'
+    #     return f'# Name:{self.name} Price:{self.price}'
 
 
 class Drink(Food):
@@ -48,6 +48,6 @@ class Drink(Food):
         super().__init__(name, price)
 
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}:{self.name} Price:{self.price}/= Quantity:{self.__quantity}ml\n'
+        return f'# {self.__class__.__name__}:{self.name} Price:{self.price}/= Quantity:{self.__quantity}ml'
 
     
