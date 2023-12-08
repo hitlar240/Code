@@ -1,14 +1,17 @@
 from bank import *
 
-
+admin = Admin('admin','admin','123')
 user = None
+
+# admin reg
+
 
 while True:
     if user == None: # user nai
-        choise = input('\nLogin/Register ? (L/R) \nExit: (press any other key) \nEnter option: ').lower()
-        if choise == 'r':
-            option = input('\nUser/Admin ? (U/A) \nEnter option: ').lower()
-            if option == 'u':
+        choise = input('\nUser/Admin ? (U/A) \nExit: (press any other key) \nEnter option: ').lower()
+        if choise == 'u':
+            option = input('\nLogin/Register ? (L/R) \nEnter option: ').lower()
+            if option == 'r':
                 typ = input('\nSavings/Current Account: (S/C) \nEnter option: ').lower()
                 if typ != 's' and typ != 'c':
                     print('\nInvalid Account Type!\n')
@@ -21,18 +24,7 @@ while True:
                 elif typ == 'c':
                     user = CurrnetAccount(name,email,address)
                 print(f"\nAccount Registration Successful \nYour Account No is '{user.id}'\n")
-            elif option == 'a':
-                name = input("Name: ")
-                email = input('Email: ')
-                passward = input("Set Passward: ")
-                user = Admin(name,email,passward)
-                print("\nAdmin Registration Successful\n")
-            else:
-                print("\nInvalid option!\n")
-
-        elif choise == 'l':
-            option = input('\nUser/Admin ? (U/A) \nEnter option: ').lower()
-            if option == 'u':
+            elif option == 'l':
                 if len(Bank.user_list) == 0:
                     print("\nNo Registered Account Yet!\n")
                     continue
@@ -40,28 +32,29 @@ while True:
                 account_no = input("Account No: ")
                 user_found = False
                 for account in Bank.user_list:
-                    if name == account.name and passward == account.id:
+                    if name == account.name and account_no == account.id:
                         user = account
                         user_found = True
                         break
                 if not user_found:
                     print('\nWrong Username or Account No.!\n')
-            elif option == 'a':
-                if len(Bank.admin_list) == 0:
-                    print("\nNo Registered Admin Yet!\n")
-                    continue
-                name = input("User Name: ")
-                passward = input("Passward: ")
-                user_found = False
-                for admin in Bank.admin_list:
-                    if name == admin.name and passward == admin.passward:
-                        user = admin
-                        user_found = True
-                        break
-                if not user_found:
-                    print('\nWrong Username or Passward!\n')
             else:
                 print("\nInvalid option!\n")
+
+        elif choise == 'a':
+            # if len(Bank.admin_list) == 0:
+            #     print("\nNo Registered Admin Yet!\n")
+            #     continue
+            name = input("User Name: ")
+            passward = input("Passward: ")
+            user_found = False
+            for admin in Bank.admin_list:
+                if name == admin.name and passward == admin.passward:
+                    user = admin
+                    user_found = True
+                    break
+            if not user_found:
+                print('\nWrong Username or Passward!\n')
         
         else:
             break # break while loop
@@ -69,28 +62,36 @@ while True:
     else: # user ase
         if user.type == "Admin":
             print(f'\nWelcome {user.name},\n')
-            print('1. Delete Account')
-            print("2. Show User List")      
-            print("3. Show Bank Balance")
-            print("4. Show Total Loan Amount")
-            print("5. Manage Loan Feature")
-            print("6. Logout")
+            print('1. Create Another Admin Account')
+            print('2. Delete User Account')
+            print("3. Show User List")      
+            print("4. Show Bank Balance")
+            print("5. Show Total Loan Amount")
+            print("6. Manage Loan Feature")
+            print("7. Logout")
 
             choise = input('\nEnter Option: ')
             if choise == '1':
-                user.delete_account(input('Enter Account No: '))
+                name = input("Name: ")
+                email = input('Email: ')
+                passward = input("Set Passward: ")
+                Bank.admin_list.append(Admin(name,email,passward))
+                print("\nAdmin Registration Successful\n")
             elif choise == '2':
-                user.show_user_list()
+                user.delete_account(input('Enter Account No: '))
             elif choise == '3':
-                user.total_bank_balance()
+                user.show_user_list()
             elif choise == '4':
-                user.total_loan()
+                user.total_bank_balance()
             elif choise == '5':
-                user.is_loan_avaiable(int(input('\nLoan Feature [OFF/ON] ? (0/1): ')))
+                user.total_loan()
+            elif choise == '6':
+                print(f'\nLoan Feature is: {int(Bank.loan_avaible)}')
+                user.is_loan_avaiable(int(input('Turn Loan Feature [OFF/ON] ? (0/1): ')))
             else:
                 user = None #logout
         
-        else:
+        else: # savings/current user
             print(f'\nWelcome {user.name},\n')
             print('1. Show Balance')
             print("2. Diposit")      
@@ -122,6 +123,4 @@ while True:
                     user.take_loan(int(input('Enter Amount: ')))
             else:
                 user = None # Logout
-
-
 

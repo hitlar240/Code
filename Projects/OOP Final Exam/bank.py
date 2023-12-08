@@ -67,13 +67,13 @@ class Account(ABC):
             print("\nInvalid Amount!\n")
 
     def withdraw(self,amount:int):
-        if Bank.balance == 0:
-            print("\nThe Bank is bankrupt!\n")
-            return
         if amount >= 0 and amount <= self.balance:
-            self.balance -= amount
-            Bank.balance -= amount
-            print(f"\nWithdrawn TK: {amount}\n")
+            if Bank.balance == 0:
+                print("\nThe Bank is bankrupt!\n")
+            else:
+                self.balance -= amount
+                Bank.balance -= amount
+                print(f"\nWithdrawn TK: {amount}\n")
         else:
             print("\nWithdrawal amount exceeded\n")
 
@@ -118,7 +118,7 @@ class SavingsAccount(Account):
         Bank.user_count += 1
 
     def check_balance(self):
-        print(f"\nName: {self.name} \nAccount No: {self.id} \nBalance:  {self.balance}\n")
+        print(f"\nName: {self.name} \nAccount Type: {self.type} \nAccount No: {self.id} \nBalance:  {self.balance}\n")
 
 class CurrnetAccount(Account):
     def __init__(self, name, email, address,) -> None:
@@ -129,7 +129,7 @@ class CurrnetAccount(Account):
         Bank.user_count += 1
 
     def check_balance(self):
-        print(f"\nName: {self.name} \nAccount No: {self.id} \nBalance:  {self.balance} \nLoan: {self.loan} \nLoan Avaiable: {self.has_loan}")
+        print(f"\nName: {self.name} \nAccount Type: {self.type} \nAccount No: {self.id} \nBalance:  {self.balance} \nLoan: {self.loan} \nLoan Avaiable: {self.has_loan}")
 
     def take_loan(self,amount:int):
         if not Bank.loan_avaible:
@@ -144,7 +144,7 @@ class CurrnetAccount(Account):
             self.loan += amount
             Bank.loan += amount
             self.has_loan -= 1
-            print(f'TK {amount} Loan taken\n')
+            print(f'\nTK {amount} Loan taken\n')
         else:
             print("\nSorry, Bank has not enough balance\n")
 
