@@ -112,33 +112,40 @@ void print(Node* head)
 
 int main()
 {
-    cout<<"1. insert at tail\n";
-    cout<<"2. insert at head\n";
-    cout<<"3. insert at position\n";
-    cout<<"4. delete head\n";
-    cout<<"5. delete from position\n";
-    cout<<"6. print list\n";
-    cout<<"press any key to end\n";
-
     Node* head = NULL; //initially
     Node* tail = NULL; //initially
 
     while(true)
     {
-        int command; cin>>command;
+        cout<<"\n\n1. insert at tail\n";
+        cout<<"2. insert at head\n";
+        cout<<"3. insert at position\n";
+        cout<<"4. delete head\n";
+        cout<<"5. delete from position\n";
+        cout<<"6. print list\n";
+        cout<<"press any key to end\n";
+
+        int command; 
+        cout<<"\nEnter optinon: "; 
+        cin>>command;
+
         if(command == 1)
         {
-            int x; cin>>x;
+            int x; 
+            cout<<"\nVal: "; cin>>x;
             insert_tail(head,tail,x);
         }
         else if(command == 2)
         {
-            int x; cin>>x;
+            int x; 
+            cout<<"\nVal: "; cin>>x;
             insert_head(head,tail,x);
         }
         else if(command == 3)
         {
-            int i,x; cin>>i>>x;
+            int i,x; 
+            cout<<"\nPosition,Val: "; cin>>i;
+            cout<<"\nVal: "; cin>>x;
             insert_at(head,i,x);
         }
         else if(command == 4)
@@ -147,16 +154,18 @@ int main()
         }
         else if(command == 5)
         {
-            int i; cin>>i;
+            int i; 
+            cout<<"\nPosition: "; cin>>i;
             delete_at(head,tail,i);
         }
         else if(command == 6)
         {
+            cout<<"\nList: ";
             print(head);
         }
         else
         {
-            cout<<"end\n";
+            cout<<"End\n";
             break;
         }
     }

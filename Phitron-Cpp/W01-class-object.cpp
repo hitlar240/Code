@@ -4,8 +4,8 @@
 using namespace std;
 
 // Class 
-// -> user-defined data type 
-// -> "blueprint" for creating objects
+// - user-defined data type 
+// - "blueprint" for creating objects
 
     class student           // Class
     {

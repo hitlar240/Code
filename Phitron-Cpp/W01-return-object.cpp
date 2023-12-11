@@ -26,33 +26,35 @@ class student           // Class
     };
 
 //(RVO) Return Value Optimaization
-student fun() // static object
-// student* fun() //dynamic object
+// "student" is a user defined datatype
+
+// student fun() // return object (static)
+student* fun() //return object pointer (dynamic object)
 {
     char nm[101]="tomal";
-    student r(nm,72,13.75,'A'); //static object
+    // student r(nm,72,13.75,'A'); //static object
     
-    // student *r = new student(nm,72,13.75,'A'); //dynamic object
+    student *r = new student(nm,72,13.75,'A'); //dynamic object
 
-    return r; //return a copy of this object
+    return r; //return a copy of this object/object pointer
 }
 
 int main()
 {
-    student r1 = fun(); //static object
-    // student *r1 = fun(); //dynamic object
+    // student r1 = fun(); //static object
+    student *r1 = fun(); //dynamic object
 
-//static
-    cout<<"Name: "<<r1.name<<endl;
-    cout<<"Roll: "<<r1.roll<<endl;
-    cout<<"Mark: "<<r1.mark<<endl;
-    cout<<"Grade: "<<r1.grade<<endl;
+// //static
+//     cout<<"Name: "<<r1.name<<endl;
+//     cout<<"Roll: "<<r1.roll<<endl;
+//     cout<<"Mark: "<<r1.mark<<endl;
+//     cout<<"Grade: "<<r1.grade<<endl;
 
 //dynamic  
-    // cout<<"Name: "<<r1->name<<endl;
-    // cout<<"Roll: "<<r1->roll<<endl;
-    // cout<<"Mark: "<<r1->mark<<endl;
-    // cout<<"Grade: "<<r1->grade<<endl;
+    cout<<"Name: "<<r1->name<<endl;
+    cout<<"Roll: "<<r1->roll<<endl;
+    cout<<"Mark: "<<r1->mark<<endl;
+    cout<<"Grade: "<<r1->grade<<endl;
     
     
 return 0;

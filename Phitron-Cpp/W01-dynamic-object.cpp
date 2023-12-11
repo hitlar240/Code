@@ -29,12 +29,12 @@ class student           // Class
 int main()
 {
 //with constructor
-    char nm1[101]="toma al";
+    char nm1[101]="tom al";
     student *r1; //pointer var.
     r1 = new student(nm1,72,13.5,'A'); //dynamic object
 
 // (->) dereference member operator
-    // (*r1).name == r1->name
+// (*r1).name = r1->name
 
 //without constructor
     // student *r1 = new student;         // Object (group name r1)

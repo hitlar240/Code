@@ -107,7 +107,7 @@ int main()
     c->prev = b;
 
     int pos;
-    cin >> pos;
+    cout << "Position: "; cin >> pos;
 
     if (pos >= size(head))
     {

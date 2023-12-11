@@ -7,7 +7,7 @@ int main()
 // new -> allocate memory in heap memory
 // delete -> delete allocated memory form heap memory
 
-    int *a; // pointer var. in stack memory
+    int *a; // pointer var. in stack memory (initialized with garbage value)
     a = new int; // address of int in heap memory
 
     *a = 10; // assingning 10 at that address
