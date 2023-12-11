@@ -1,5 +1,7 @@
 .cph/
 .vscode/
+test.cpp
+test.py
 *.txt
 *.exe
 *.bin

@@ -1,9 +1,8 @@
 class Star_Cinema:
     hall_list = [] # list of (Hall)objects
 
-    @classmethod
     def entry_hall(cls,hall):
-        cls.hall_list.append(hall)
+        Star_Cinema.hall_list.append(hall)
 
 
 class Hall(Star_Cinema):
