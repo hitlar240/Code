@@ -7,113 +7,147 @@ class Node
 {
 public:
     int val; // value
-    Node* next; // next address
-    Node* prev; // previous address
+    Node* next = NULL; // next address
+    Node* prev = NULL; // previous address
 
-    Node(int x) //constructor
+    Node(int val) //constructor
     {
-        val = x;
-        next = NULL;
-        prev = NULL;
+        this->val = val;
     }
 };
 
-void insert_tail(Node* &head, Node* &tail, int val)
-{
-    if(head==NULL)
-    {
-        head = tail = new Node(val);
-        return;
-    }
-    tail = tail->next = new Node(val);
-}
 
-void insert_head(Node* &head, Node* &tail, int val)
+class Doubly_Linked_List
 {
-    if(head==NULL)
-    {
-        head = tail = new Node(val);
-        return;
-    }
-    Node* tmp = head; //old head
-    head = new Node(val); //new head
-    head->next = tmp;
-}
+private:
+    Node* head = NULL; //initially
+    Node* tail = NULL; //initially
 
-void insert_at(Node* &head, int index, int val)
-{
-    if(index == 0)
+public:
+    void insert_tail(int val)
     {
-        Node* tmp = head; //old head
+        if(head==NULL)
+        {
+            head = tail = new Node(val);
+            return;
+        }
+        Node* tl = tail; // old tail
+        tail = new Node(val); // new tail
+        tl->next = tail;
+        tail->prev = tl;
+    }
+
+    void insert_head(int val)
+    {
+        if(head==NULL)
+        {
+            head = tail = new Node(val);
+            return;
+        }
+        Node* hd = head; //old head
         head = new Node(val); //new head
-        head->next = tmp;
-        return;
+        head->next = hd;
+        hd->prev = head;
     }
-    Node* tmp = head;
-    for(int i=1; i<index; i++)
+
+    void insert_at(int index, int val)
     {
-        tmp = tmp->next;
-        if(tmp == NULL)
+        if(index == 0) // head
         {
-            cout<<"Invalid index!\n";
+            insert_head(val);
             return;
         }
-    }
-    Node* a = new Node(val);
-    a->next = tmp->next;
-    tmp->next = a;
-}
-
-void delete_head(Node* &head, Node* &tail)
-{
-    if(head == NULL)
-    {
-        cout<<"empty!\n";
-        return;
-    }
-    Node* tmp = head;
-    head = head->next;
-    delete tmp;
-}
-
-void delete_at(Node* &head, Node* &tail, int index)
-{
-    if(head == NULL)
-    {
-        cout<<"empty!\n";
-        return;
-    }
-    Node* tmp = head;
-    for(int i=1; i<index; i++)
-    {
-        tmp = tmp->next;
-        if(tmp == NULL || tmp->next == NULL)
+        Node* tmp = head;
+        for(int i=1; i<index; i++) // (index-1) iterations
         {
-            cout<<"Invalid index!\n";
+            tmp = tmp->next;
+            if(tmp == NULL)
+            {
+                cout<<"Invalid index!\n";
+                return;
+            }
+        }
+        Node* a = new Node(val);
+        a->next = tmp->next;
+        tmp->next = a;
+        a->prev = tmp;
+        a->next->prev = a;
+    }
+
+    void delete_head()
+    {
+        if(head == NULL)
+        {
+            cout<<"empty!\n";
             return;
         }
+        Node* tmp = head;
+        head = head->next;
+        head->prev = NULL;
+        delete tmp;
     }
-    Node* dlt = tmp->next;
-    tmp->next = tmp->next->next;
-    delete dlt;
-}
 
-void print(Node* head)
-{
-    Node* tmp = head;
-    while(tmp != NULL)
+    void delete_at(int index)
     {
-        cout<<tmp->val<<" ";
-        tmp = tmp->next;
+        if(head == NULL)
+        {
+            cout<<"empty!\n";
+            return;
+        }
+        Node* tmp = head;
+        for(int i=1; i<index; i++)
+        {
+            tmp = tmp->next;
+            if(tmp == NULL || tmp->next == NULL)
+            {
+                cout<<"Invalid index!\n";
+                return;
+            }
+        }
+        Node* dlt = tmp->next;
+        tmp->next = dlt->next;
+        dlt->next->prev = tmp;
+        delete dlt;
     }
-    cout<<endl;
-}
+
+    void print()
+    {
+        if(head == NULL) 
+        {
+            cout<<"Empty!\n";
+            return;
+        }
+        Node* tmp = head;
+        while(tmp != NULL)
+        {
+            cout<<tmp->val<<" ";
+            tmp = tmp->next;
+        }
+        cout<<endl;
+    }
+
+    void print_reverse()
+    {
+        if(tail == NULL) 
+        {
+            cout<<"Empty!\n";
+            return;
+        }
+        Node* tmp = tail;
+        while(tmp != NULL)
+        {
+            cout<<tmp->val<<" ";
+            tmp = tmp->prev;
+        }
+        cout<<endl;
+    }
+}; //class Doubly_Linked_List
+
 
 
 int main()
 {
-    Node* head = NULL; //initially
-    Node* tail = NULL; //initially
+    Doubly_Linked_List dll;
 
     while(true)
     {
@@ -123,6 +157,7 @@ int main()
         cout<<"4. delete head\n";
         cout<<"5. delete from position\n";
         cout<<"6. print list\n";
+        cout<<"7. print reverse\n";
         cout<<"press any key to end\n";
 
         int command; 
@@ -133,35 +168,40 @@ int main()
         {
             int x; 
             cout<<"\nVal: "; cin>>x;
-            insert_tail(head,tail,x);
+            dll.insert_tail(x);
         }
         else if(command == 2)
         {
             int x; 
             cout<<"\nVal: "; cin>>x;
-            insert_head(head,tail,x);
+            dll.insert_head(x);
         }
         else if(command == 3)
         {
             int i,x; 
-            cout<<"\nPosition,Val: "; cin>>i;
+            cout<<"\nPosition: "; cin>>i;
             cout<<"\nVal: "; cin>>x;
-            insert_at(head,i,x);
+            dll.insert_at(i,x);
         }
         else if(command == 4)
         {
-            delete_head(head,tail);
+            dll.delete_head();
         }
         else if(command == 5)
         {
             int i; 
             cout<<"\nPosition: "; cin>>i;
-            delete_at(head,tail,i);
+            dll.delete_at(i);
         }
         else if(command == 6)
         {
             cout<<"\nList: ";
-            print(head);
+            dll.print();
+        }
+        else if(command == 7)
+        {
+            cout<<"\nList: ";
+            dll.print_reverse();
         }
         else
         {
