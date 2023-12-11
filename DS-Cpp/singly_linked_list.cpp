@@ -5,13 +5,14 @@ using namespace std;
 
 class Node
 {
-    public: // access modifier
-    int x;
+public: // access specifier
+    int val;
     Node* next; // pointer of next node object
 
-    Node(int val) // constructor
+// constructor
+    Node(int val) 
     {
-        x = val;
+        this->val = val;
         next = NULL;
     }
 };
@@ -26,17 +27,17 @@ int main()
     Node* box5 = new Node(5);
 
 // links | ->
-    box1->next = box2; // 
-    box2->next = box3; // 
-    box3->next = box4; // 
-    box4->next = box5; // 
+    box1->next = box2; // forward connection
+    box2->next = box3;  
+    box3->next = box4;  
+    box4->next = box5;  
 
 
 // print list
     Node* tmp = box1;
     while(tmp != NULL)
     {
-        cout<<tmp->x<<" ";
+        cout<<tmp->val<<" ";
         tmp = tmp->next;
     }
     
