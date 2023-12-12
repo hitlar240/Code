@@ -20,8 +20,8 @@ public:
 class Singly_Linked_List
 {
 public:
-    Node* head=NULL; //initially
     Node* tail=NULL; //initially
+    Node* head=NULL; //initially
 
     void insert_tail(int val)
     {

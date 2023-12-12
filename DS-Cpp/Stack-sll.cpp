@@ -5,23 +5,22 @@ using namespace std;
 
 class Node
 {
-    public:
+public:
     int val;
-    Node* next;
-    Node(int v)
+    Node* below = NULL;
+    Node(int val)
     {
-        val = v;
-        next = NULL;
+        this->val = val;
     }
 };
 
 class Stack
 {
-    private: //inaccessible
+private: //inaccessible
     Node* head = NULL;
     int sz = 0; //initially
 
-    public: //accessible
+public: //accessible
     int size()
     {
         return sz;
@@ -35,55 +34,63 @@ class Stack
             return;
         }
         Node* a = new Node(v);
-        a->next = head;
+        a->below = head;
         head = a;
     }
     int top()
     {
-        if(sz != 0)
-            return head->val;
-        else
+        // if(sz == 0)
+        if(head == NULL)
         {
             cout << "Empty!" << endl;
             return -1;
         }
+        else
+        {
+            return head->val;
+        }
     }
     void pop()
     {
-        if(sz != 0)
+        // if(sz == 0)
+        if(head == NULL)
         {
-            Node* dlt = head;
-            head = head->next;
-            delete(dlt);
-            sz--;
+            cout<<"Empty!\n";
         }
         else
-            cout<<"Empty!\n";
+        {
+            Node* a = head;
+            head = head->below;
+            delete(a);
+            sz--;
+        }
     }
 };
 
 int main()
 {
     Stack s;
-    // s.push(1);
-    // s.push(2);
-    // s.push(3);
-    // cout<<s.top()<<" "; //3
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    // cout<<s.top()<<endl; //3
     // s.pop();
-    // cout<<s.top()<<" "; //2
+    // cout<<s.top()<<endl; //2
     // s.pop();
-    // cout<<s.top()<<" "; //1
+    // cout<<s.top()<<endl; //1
     // s.pop();
-    // cout<<s.top()<<" "; //-1 empty
+    // cout<<s.top()<<endl; //-1 empty
     // s.pop(); //empty
+    s.push(20);
+    cout<<"size = "<<s.size()<<endl;
 
 
-    int n; cout<<"N = "; cin>>n;
-    while(n--)
-    {
-        int x; cin>>x;
-        s.push(x);
-    }
+    // int n; cout<<"N = "; cin>>n;
+    // while(n--)
+    // {
+    //     int x; cin>>x;
+    //     s.push(x);
+    // }
 
     while(s.size() != 0)
     {
