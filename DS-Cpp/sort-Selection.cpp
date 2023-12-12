@@ -1,5 +1,4 @@
 #include<iostream>
-
 using namespace std;
 
 void selectiion(int a[], int n) //O(n^2)
@@ -17,10 +16,10 @@ void selectiion(int a[], int n) //O(n^2)
     //swap
         if(mn != i)
         {
-            swap(a[i],a[mn]);
-            // int tmp = a[i];
-            // a[i] = a[mn];
-            // a[mn] = tmp;
+            // swap(a[i],a[mn]);
+            int tmp = a[i];
+            a[i] = a[mn];
+            a[mn] = tmp;
         }
     }
 }

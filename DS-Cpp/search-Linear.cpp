@@ -13,14 +13,15 @@ bool Linear(int a[], int s, int n)
 
 int main()
 {
-    int n; cout<<"N = "; cin>>n; 
+    int n; //size of array
+    cout<<"Size of array = "; cin>>n; 
     int arr[n];
     for(int i=0; i<n; i++)
     {
         cin>>arr[i];
     }
 
-    int s; cout<<"S = "; cin>>s;
+    int s; cout<<"Search for = "; cin>>s;
 
     if(Linear(arr,s,n)==true)
         cout<<"Found\n";

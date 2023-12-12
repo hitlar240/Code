@@ -1,23 +1,25 @@
 #include<iostream>
-#include<algorithm>
+// #include<algorithm> // sort()
 using namespace std;
 
 bool Binary(int a[], int s, int n)
 {
-    int i=0,j=n-1;
-    while(i<=j)
+    int l=0,u=n-1; //initially
+    while(l<=u)
     {
-        int mid = (i+j)/2;
-        if(a[mid]==s) return true;
+        int mid = (l+u)/2; 
+        if(a[mid]==s) 
+            return true;
         else if(s<a[mid])
         {
-            j=mid-1;
+            u=mid-1;
         }
         else
-            i=mid+1;
+            l=mid+1;
     }
     return false;
 }
+
 
 void selection_sort(int a[], int n)
 {
@@ -59,6 +61,7 @@ int main()
         cout<<"Found\n";
     else
         cout<<"Not Found!\n";
+
 
 return 0;
 }
