@@ -19,11 +19,10 @@ public:
 
 class Singly_Linked_List
 {
-private:
+public:
     Node* head=NULL; //initially
     Node* tail=NULL; //initially
 
-public:
     void insert_tail(int val)
     {
         if(head==NULL) // no tail 
@@ -48,6 +47,11 @@ public:
 
     void insert_at(int index, int val)
     {
+        if(head == NULL)
+        {
+            cout<<"Empty List!\n";
+            return;
+        }
         if(index == 0) // head
         {
             insert_head(val);
@@ -80,6 +84,23 @@ public:
         delete tmp;
     }
 
+    void delete_tail()
+    {
+        if(head == NULL)
+        {
+            cout<<"Empty List!\n";
+            return;
+        }
+        Node* tmp = head;
+        while(tmp->next->next != NULL)
+        {   
+            tmp = tmp->next;
+        }
+        Node* a = tmp->next;
+        tmp->next = tmp->next->next;
+        delete a;
+    }
+
     void delete_at(int index)
     {
         if(head == NULL) // no head
@@ -87,11 +108,16 @@ public:
             cout<<"empty!\n";
             return;
         }
+        if(index == 0)
+        {
+            delete_head();
+            return;
+        }
         Node* tmp = head;
         for(int i=1; i<index; i++)
         {
             tmp = tmp->next;
-            if(tmp == NULL || tmp->next == NULL)
+            if(tmp == NULL || tmp->next == NULL) //******
             {
                 cout<<"Invalid index!\n";
                 return;
@@ -100,6 +126,30 @@ public:
         Node* dlt = tmp->next;
         tmp->next = tmp->next->next;
         delete dlt;
+    }
+    
+    bool search_for(int s)
+    {
+        Node* tmp = head;
+        while(tmp != NULL)
+        {
+            if(tmp->val == s)
+            {
+                return true;
+            }
+            tmp = tmp->next;
+        }
+        return false;
+    }
+
+    void concatenate(Node* new_head)
+    {
+        if(head == NULL)
+        {
+            head = tail = new_head;
+            return;
+        }
+        tail->next = new_head;
     }
 
     void print()
@@ -124,6 +174,13 @@ public:
 int main()
 {
     Singly_Linked_List sll; // object
+    Singly_Linked_List sll2;
+    sll2.insert_tail(11);
+    sll2.insert_tail(22);
+    sll2.insert_tail(33);
+    sll2.insert_tail(44);
+    sll2.insert_tail(55);
+    Node* new_head = sll2.head;
 
     while(true)
     {
@@ -132,7 +189,10 @@ int main()
         cout<<"3. insert at position\n";
         cout<<"4. delete head\n";
         cout<<"5. delete from position\n";
-        cout<<"6. print list\n";
+        cout<<"6. delete tail\n";
+        cout<<"7. print list\n";
+        cout<<"8. search for\n";
+        cout<<"9. concatenate list\n";
         cout<<"press any key to end\n";
 
         int command; 
@@ -168,8 +228,29 @@ int main()
         }
         else if(command == 6)
         {
+            sll.delete_tail();
+        }
+        else if(command == 7)
+        {
             cout<<"\nList: ";
             sll.print();
+        }
+        else if(command == 8)
+        {
+            int s;
+            cout<<"Search for: "; cin>>s;
+            if(sll.search_for(s))
+            {
+                cout<<"Found\n";
+            }
+            else
+            {
+                cout<<"Not Found!\n";
+            }
+        }
+        else if(command == 9)
+        {
+            sll.concatenate(new_head);
         }
         else
         {
