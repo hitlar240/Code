@@ -1,5 +1,6 @@
 // Stack using (Singly Linked List)
 
+#include<bits/stdc++.h>
 #include<iostream>
 using namespace std;
 
@@ -97,6 +98,8 @@ int main()
         cout<<s.top()<<" ";
         s.pop();
     }
+
+    
 
 return 0;
 }
