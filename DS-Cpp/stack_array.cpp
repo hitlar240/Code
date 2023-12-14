@@ -5,7 +5,7 @@ using namespace std;
 class Stack 
 {
 public:
-    int arr[10000];
+    int arr[100000]; //max size ~10^5
     int id = 0;
 
     int size()
@@ -20,11 +20,21 @@ public:
     
     int top()
     {
-        return arr[id-1];
+        if(id == 0) 
+        {
+            cout<<"Empty!\n";
+            return -1; // -1 for empty
+        }
+        return arr[id-1]; // last index
     }
 
     int pop()
     {
+        if(id == 0) 
+        {
+            cout<<"Empty!\n";
+            return -1; // -1 for empty
+        }
         return arr[--id]; //pre-decrement
     }
 

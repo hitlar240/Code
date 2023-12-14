@@ -128,7 +128,7 @@ public:
         delete dlt;
     }
     
-    int search_for(int s)
+    int search_for(int s) //linear search
     {
         int count = 0;
         Node* tmp = head;
@@ -142,6 +142,33 @@ public:
             tmp = tmp->next;
         }
         return -1;
+    }
+
+    void sort_list() //selection sort
+    {
+        if(head == NULL) return; //empty list
+
+        Node* i = head;
+        while(i->next != NULL)
+        {
+            Node* mn = i; //initial min
+            Node* j = i->next;
+            while(j != NULL)
+            {
+                if(mn->val > j->val)
+                    mn = j;
+
+                j = j->next;
+            }
+            if(i != mn)
+            {
+            //swap
+                int tmp = i->val;
+                i->val = mn->val;
+                mn->val = tmp;
+            }
+            i = i->next;
+        }
     }
 
     void print()
@@ -183,11 +210,12 @@ int main()
         cout<<"2. insert at head\n";
         cout<<"3. insert at index\n";
         cout<<"4. delete head\n";
-        cout<<"5. delete from position\n";
+        cout<<"5. delete from index\n";
         cout<<"6. delete tail\n";
         cout<<"7. print list\n";
         cout<<"8. search for\n";
-        cout<<"9. delete list\n";
+        cout<<"9. sort list\n";
+        cout<<"10. delete list\n";
         cout<<"press any key to end\n";
 
         int command; 
@@ -245,6 +273,10 @@ int main()
             }
         }
         else if(command == 9)
+        {
+            sll.sort_list();
+        }
+        else if(command == 10)
         {
             sll.delete_list();
         }

@@ -7,16 +7,19 @@ public:
     vector <int> v;
     
     int sz = 0;
-    bool empty() {
+    bool empty() 
+    {
         return sz==0;
     }
 
-    void enqueue(int data) {
+    void enqueue(int data) 
+    {
         sz++;
         v.push_back(data);
     }
 
-    int dequeue() {
+    int dequeue() 
+    {
         if(!empty())
         {
             int x = v.front();
@@ -28,7 +31,8 @@ public:
             return -1;
     }
 
-    int front() {
+    int front() 
+    {
         if(!empty())
             return v.front();
         else
