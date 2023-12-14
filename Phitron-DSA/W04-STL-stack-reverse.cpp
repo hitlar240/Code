@@ -2,7 +2,8 @@
 //#include<iostream>
 using namespace std;
 
-void reverseStack(stack<int> &st) {
+void reverseStack(stack<int> &st) 
+{
     if(st.empty())
         return;
     

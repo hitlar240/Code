@@ -4,10 +4,11 @@ using namespace std;
 
 class Stack 
 {
-public:
+private:
     int arr[100000]; //max size ~10^5
     int id = 0;
 
+public:
     int size()
     {
         return id;
