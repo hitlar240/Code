@@ -128,18 +128,20 @@ public:
         delete dlt;
     }
     
-    bool search_for(int s)
+    int search_for(int s)
     {
+        int count = 0;
         Node* tmp = head;
         while(tmp != NULL)
         {
+            count++;
             if(tmp->val == s)
             {
-                return true;
+                return count;
             }
             tmp = tmp->next;
         }
-        return false;
+        return -1;
     }
 
     void print()
@@ -179,7 +181,7 @@ int main()
     {
         cout<<"\n\n1. insert at tail\n";
         cout<<"2. insert at head\n";
-        cout<<"3. insert at position\n";
+        cout<<"3. insert at index\n";
         cout<<"4. delete head\n";
         cout<<"5. delete from position\n";
         cout<<"6. delete tail\n";
@@ -232,9 +234,10 @@ int main()
         {
             int s;
             cout<<"Search for: "; cin>>s;
-            if(sll.search_for(s))
+            int pos = sll.search_for(s);
+            if(pos != -1)
             {
-                cout<<"Found\n";
+                cout<<"Found at position: "<<pos<<endl;
             }
             else
             {
