@@ -142,16 +142,6 @@ public:
         return false;
     }
 
-    void concatenate(Node* new_head)
-    {
-        if(head == NULL)
-        {
-            head = tail = new_head;
-            return;
-        }
-        tail->next = new_head;
-    }
-
     void print()
     {
         if(head == NULL) 
@@ -168,19 +158,22 @@ public:
         cout<<endl;
     }
 
+    void delete_list()
+    {
+        while(head != NULL)
+        {
+            Node* tmp = head;
+            head = head->next;
+            delete tmp;
+        }
+    }
+
 }; //class Singly_Linked_List
 
 
 int main()
 {
     Singly_Linked_List sll; // object
-    Singly_Linked_List sll2;
-    sll2.insert_tail(11);
-    sll2.insert_tail(22);
-    sll2.insert_tail(33);
-    sll2.insert_tail(44);
-    sll2.insert_tail(55);
-    Node* new_head = sll2.head;
 
     while(true)
     {
@@ -192,7 +185,7 @@ int main()
         cout<<"6. delete tail\n";
         cout<<"7. print list\n";
         cout<<"8. search for\n";
-        cout<<"9. concatenate list\n";
+        cout<<"9. delete list\n";
         cout<<"press any key to end\n";
 
         int command; 
@@ -250,7 +243,7 @@ int main()
         }
         else if(command == 9)
         {
-            sll.concatenate(new_head);
+            sll.delete_list();
         }
         else
         {
