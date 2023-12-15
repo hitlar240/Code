@@ -49,6 +49,7 @@ public:
         return root;
     }
 
+//traversal
     void level_order(Node* root) //O(n)
     {
         if(!root) return; // No tree 
