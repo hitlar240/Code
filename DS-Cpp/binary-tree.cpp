@@ -92,8 +92,8 @@ int main()
 */
 
 //traversal
-    pre_order(root); cout<<endl;
-    in_order(root); cout<<endl;
+    // pre_order(root); cout<<endl;
+    // in_order(root); cout<<endl;
     post_order(root); cout<<endl;
 
 return 0;

@@ -58,6 +58,16 @@ public:
         }
     }
 
+    void reverse_stack()
+    {
+        int tmp[id];
+        for(int i=0; i<id; i++)
+            tmp[i] = arr[i];
+
+        for(int i=0,j=id-1; i<id; i++,j--)
+            arr[i] = tmp[j];
+    }
+
     void print()
     {
         for(int i=id-1; i>=0; i--)
@@ -66,13 +76,13 @@ public:
         cout<<endl;
     }
 
-    void reverse_print()
-    {
-        for(int i=0; i<id; i++)
-            cout<<arr[i]<<" ";
+    // void reverse_print()
+    // {
+    //     for(int i=0; i<id; i++)
+    //         cout<<arr[i]<<" ";
 
-        cout<<endl;
-    }
+    //     cout<<endl;
+    // }
 
 };
 
@@ -95,11 +105,18 @@ int main()
     s.print();
     cout<<"size = "<<s.size()<<endl;
 
-    s.reverse_print();
+    // s.reverse_print();
 
     s.sort_stack();
     s.print();
 
+    cout<<"top = "<<s.top()<<endl;
+
+    s.reverse_stack();
+    cout<<"top = "<<s.top()<<endl;
+    s.print();
+    
+    
 
 return 0;
 }

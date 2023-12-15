@@ -97,7 +97,7 @@ public:
             tmp = tmp->next;
         }
         Node* a = tmp->next;
-        tmp->next = tmp->next->next;
+        tmp->next = NULL;
         delete a;
     }
 
@@ -123,9 +123,9 @@ public:
                 return;
             }
         }
-        Node* dlt = tmp->next;
+        Node* a = tmp->next;
         tmp->next = tmp->next->next;
-        delete dlt;
+        delete a;
     }
     
     int search_for(int s) //linear search
