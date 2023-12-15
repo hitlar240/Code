@@ -75,7 +75,7 @@ void levelOrder(Node* root) // O(N)
 
 int main()
 {
-    Node root = inputTree();
+    Node* root = inputTree();
     // Node* root = inputTree();
     
 /*
