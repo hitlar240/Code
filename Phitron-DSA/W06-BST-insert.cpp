@@ -5,8 +5,7 @@ class Node
 {
     public:
     int val;
-    Node* left;
-    Node* right;
+    Node* left, * right;
     Node(int val)
     {
         this->val = val;
@@ -93,6 +92,9 @@ int main()
            /       /           \
           /       /             \
          15      30             60
+                /
+               /
+              32 <----- insert
 */
 
     Node* root = input_tree();

@@ -105,7 +105,7 @@ int main()
     s.print();
     cout<<"size = "<<s.size()<<endl;
 
-    // s.reverse_print();
+    // // s.reverse_print();
 
     s.sort_stack();
     s.print();

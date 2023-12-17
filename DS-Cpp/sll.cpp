@@ -144,24 +144,25 @@ int main()
     s.print();
 
     s.insert_at(2,100);
+    s.print();
     s.insert_at(0,500); //at head
-    s.insert_head(1000);
+    // s.insert_head(1000);
     s.print();
 
-    s.insert_at(23,9);
-    s.insert_at(8,123); //at tail
-    s.print();
+    // s.insert_at(23,9);
+    // s.insert_at(8,123); //at tail
+    // s.print();
 
-    s.delete_head();
-    s.print();
+    // s.delete_head();
+    // s.print();
 
-    s.delete_at(8);
-    s.delete_at(9);
+    // s.delete_at(8);
+    // s.delete_at(9);
 
-    s.delete_tail();
-    s.print();
-
-
+    // s.delete_tail();
+    // s.print();
 
 
+
+return 0;
 }

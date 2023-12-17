@@ -130,16 +130,16 @@ public:
     
     int search_for(int s) //linear search
     {
-        int count = 0;
+        int id = 0;
         Node* tmp = head;
         while(tmp != NULL)
         {
-            count++;
             if(tmp->val == s)
             {
-                return count;
+                return id;
             }
             tmp = tmp->next;
+            id++;
         }
         return -1;
     }
@@ -191,9 +191,10 @@ public:
     {
         while(head != NULL)
         {
-            Node* tmp = head;
-            head = head->next;
-            delete tmp;
+            delete_head();
+            // Node* tmp = head;
+            // head = head->next;
+            // delete tmp;
         }
     }
 
@@ -262,10 +263,10 @@ int main()
         {
             int s;
             cout<<"Search for: "; cin>>s;
-            int pos = sll.search_for(s);
-            if(pos != -1)
+            int index = sll.search_for(s);
+            if(index != -1)
             {
-                cout<<"Found at position: "<<pos<<endl;
+                cout<<"Found at index: "<<index<<endl;
             }
             else
             {

@@ -79,11 +79,11 @@ int main()
     b.insert_tail(10);
 
     a.concatenate(b);
+    // b.concatenate(a);
 
     cout<<"List a: ";a.print();
 
     cout<<"List b: "; b.print();
-
 
 
     // b.insert_tail(11);
