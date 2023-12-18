@@ -20,7 +20,7 @@ Node* construct(int a[], int l, int r)
     if(l>r) return NULL;
 
     int mid = (l+r)/2;
-    Node* root = new Node(a[mid]);
+    Node* root = new Node(a[mid]); //scope of this root is inside construct()
     root->left = construct(a, l, mid-1);
     root->right = construct(a, mid+1, r);
 
