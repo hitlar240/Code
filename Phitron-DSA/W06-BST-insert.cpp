@@ -40,7 +40,7 @@ Node* input_tree()
     return root; //return a copy of this dynamic object (Node)
 }
 
-void insert(Node* &root, int x) //reference
+void insert(Node* &root, int x) //reference | O(hight)
 {
     if(root == NULL)
     {
