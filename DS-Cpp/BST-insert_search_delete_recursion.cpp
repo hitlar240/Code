@@ -29,7 +29,6 @@ public:
 
         if(val < root->val)
         {
-            cout<<val<<"<"<<root->val<<endl;
             if(!root->left)
                 root->left = new Node(val);
             else
@@ -37,7 +36,6 @@ public:
         }
         else if(val > root->val)//no duplication in BST
         {
-            cout<<val<<">"<<root->val<<endl;
             if(!root->right)
                 root->right = new Node(val);
             else
@@ -170,7 +168,9 @@ int main()
 
     // t.root = t.delete_node(t.root,65); //case 1
     // t.root = t.delete_node(t.root,30); //case 2
-    t.root = t.delete_node(t.root,20); //case 3
+    // t.root = t.delete_node(t.root,20); //case 3
+    // t.root = t.delete_node(t.root,70); //case 3
+    t.root = t.delete_node(t.root,50); //root | case 3
 
     t.in_order(t.root); cout<<endl;
     t.level_order(); cout<<endl;
