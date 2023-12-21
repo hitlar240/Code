@@ -24,49 +24,46 @@ void delete_top(vector<int> &v)
         cout<<"empty!"<<endl;
         return;
     }
-    else
-    {
-        v[0] = v[v.size()-1];
-        v.pop_back(); // delete last node
 
-        int p = 0;
-        int last = v.size()-1;
-        while(true)
+    v[0] = v[v.size()-1];
+    v.pop_back(); // delete last node
+    int p = 0;
+    int last = v.size()-1;
+    while(true)
+    {
+        int l = p*2+1;
+        int r = p*2+2;
+        // if(l<=last && r<=last) // C.B.T
+        if(r<=last) // has both left & right child
         {
-            int l = p*2+1;
-            int r = p*2+2;
-            // if(l<=last && r<=last) // C.B.T
-            if(r<=last) // has both left & right child
+            if(v[p] < max(v[l],v[r]))
             {
-                if(v[p] < max(v[l],v[r]))
-                {
-                    if(v[l] >= v[r])
-                    {
-                        swap(v[p], v[l]);
-                        p = l;
-                    }
-                    else
-                    {
-                        swap(v[p], v[r]);
-                        p = r;
-                    }
-                }
-                else
-                    break;
-            }
-            else if(l <= last) // has no right child
-            {
-                if(v[l] > v[p])
+                if(v[l] >= v[r])
                 {
                     swap(v[p], v[l]);
                     p = l;
                 }
                 else
-                    break;
+                {
+                    swap(v[p], v[r]);
+                    p = r;
+                }
             }
             else
                 break;
         }
+        else if(l <= last) // has no right child
+        {
+            if(v[l] > v[p])
+            {
+                swap(v[p], v[l]);
+                p = l;
+            }
+            else
+                break;
+        }
+        else
+            break;
     }
 }
 
