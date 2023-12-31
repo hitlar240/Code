@@ -18,18 +18,17 @@ int main()
             int p = (c-1)/2;
 
             if(v[p] > v[c]) // min at top
+            {
                 swap(v[p], v[c]);
+                c = p;
+            }
             else
                 break;
-
-            c = p;
         }
     }
 
     for(int i=0; i<v.size(); cout<<v[i++]<<" ");
 
-    // for(int val : v)
-    //     cout<<val<<" ";
 
 return 0;
 }

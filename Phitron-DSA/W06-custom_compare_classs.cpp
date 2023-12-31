@@ -17,12 +17,12 @@ class stu
 
 class cmp // custom compare class
 {
-    public:
+public:
     bool operator()(stu a, stu b)
     {
         if(a.marks < b.marks) return true; // true -> change
         else if(a.marks > b.marks) return false; // false -> don't change
-        else
+        else //equal marks 
         {
             // if(a.roll > b.roll) return true; // true -> change
             // else return false; // false -> don't change
@@ -52,6 +52,7 @@ int main()
         cout<<pq.top().name<<" "<<pq.top().roll<<" "<<pq.top().marks<<endl;
         pq.pop();
     }
+
 
 return 0;
 }

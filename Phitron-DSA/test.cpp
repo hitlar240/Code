@@ -15,7 +15,7 @@ public:
     {
         v.push_back(val);
         int id = v.size()-1;
-        while(id>=0 && v[id]>v[(id-1)/2])
+        while(id>0 && v[id]>v[(id-1)/2])
         {
             swap(v[id], v[(id-1)/2]);
 

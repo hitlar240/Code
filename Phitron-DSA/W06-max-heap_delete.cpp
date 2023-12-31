@@ -16,11 +16,11 @@ int main()
         {
             int l = p*2+1;
             int r = p*2+2;
-            if(l<=last && r<=last)
+            if(r<=last) //both left & right child
             {
                 if(v[p] < max(v[l], v[r])) // max at top
                 {
-                    if(v[l] >= v[r])
+                    if(v[l] > v[r])
                     {
                         swap(v[p], v[l]);
                         p = l;
@@ -34,7 +34,7 @@ int main()
                 else
                     break;
             }
-            else if(l <= last)
+            else if(l <= last) //only left child
             {
                 if(v[l] > v[p])
                 {
@@ -44,17 +44,7 @@ int main()
                 else
                     break;
             }
-            else if(r <= last)
-            {
-                if(v[r] > v[p])
-                {
-                    swap(v[p], v[r]);
-                    p = r;
-                }
-                else
-                    break;
-            }
-            else
+            else //last node
                 break;
         }
 

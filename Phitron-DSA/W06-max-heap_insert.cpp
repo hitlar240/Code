@@ -18,11 +18,12 @@ int main()
             int p = (c-1)/2;
 
             if(v[p] < v[c]) // max at top
+            {
                 swap(v[p], v[c]);
+                c = p;
+            }
             else
                 break;
-
-            c = p;
         }
     }
 

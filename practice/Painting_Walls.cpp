@@ -6,9 +6,8 @@ int main()
     int t; cin>>t;
     while(t--)
     {
-        int n; cin>>n;
-
-        
+        int x,y,z; cin>>x>>y>>z;
+        cout<<z/(x*y*2)<<endl;
     }
 
 return 0;

@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+typedef pair<string,int> pr;
+
+
 int main()
 {
     // map <key, val> // key-value pair
@@ -20,7 +23,7 @@ int main()
     cout<<mp.count("hitlar")<<endl; // 1 -> ase
 
     cout<<mp.count("nai")<<endl;    // 0 -> nai
-    // cout<<mp["nai"]<<endl; 
+    cout<<mp["nai"]<<endl; 
 
 
     // for(auto it=mp.begin(); it!=mp.end(); it++) // no order (hashing)
@@ -28,10 +31,11 @@ int main()
     //     cout<<it->first<<" "<<it->second<<endl; //O(log(N))
     // }
 
-    for(pair<string,int> pr : mp)
+    for(pr p : mp)
     {
-        cout<<pr.first<<" "<<pr.second<<endl;
+        cout<<p.first<<" "<<p.second<<endl;
     }
+    
 
 return 0;
 }

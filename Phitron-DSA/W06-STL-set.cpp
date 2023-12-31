@@ -14,18 +14,18 @@ int main()
     }
 
 //iterator
-    for(auto it=st.begin(); it!=st.end(); it++) //
+    // for(auto it=st.begin(); it!=st.end(); it++) //
+    // {
+    //     cout<<*it<<" "; //dereference
+    // }
+    // cout<<endl;
+
+//range based for loop
+    for(int v : st)
     {
-        cout<<*it<<" ";
+        cout<<v<<" ";
     }
     cout<<endl;
-
-// //range based for loop
-//     for(int v : st)
-//     {
-//         cout<<v<<" ";
-//     }
-//     cout<<endl;
 
 //search
     cout<<st.count(0)<<endl; //O(log(N))

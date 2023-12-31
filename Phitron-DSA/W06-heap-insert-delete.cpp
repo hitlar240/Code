@@ -8,12 +8,15 @@ void insert_(vector<int> &v, int x)
     while(c != 0)
     {
         int p = (c-1)/2; //parent
+
         if(v[p] < v[c]) //max-heap
         // if(v[p] > v[c]) //min-heap
+        {
             swap(v[p], v[c]);
+            c = p; //current-parent
+        }
         else 
             break;
-        c = p; //current-parent
     }
 }
 
@@ -62,7 +65,7 @@ void delete_top(vector<int> &v)
             else
                 break;
         }
-        else
+        else //last node
             break;
     }
 }
@@ -88,6 +91,12 @@ int main()
 
     while(true)
     {
+        cout<<"0. print\n";
+        cout<<"1. insert\n";
+        cout<<"2. delete\n";
+        cout<<"(any other key to end)\n";
+        cout<<"\nOption: ";
+
         int com; cin>>com;
 
         if(com == 0)
@@ -103,7 +112,7 @@ int main()
         {
             delete_top(v);
         }
-        else if(com == 3)
+        else
             break;
     }
 
