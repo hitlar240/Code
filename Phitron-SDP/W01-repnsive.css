@@ -1,0 +1,19 @@
+.title{
+    color: red;
+    font-size: 100px;
+}
+/* phone */
+@media only screen and  (max-width: 480px){
+    .title{
+        color: green;
+        font-size: 50px;
+        /* display: none; */
+    }
+}
+/* tablet */
+@media only screen and  (min-width:481px) and (max-width: 768px){
+    .title{
+        color: blue;
+        font-size: 80px;
+    }
+}

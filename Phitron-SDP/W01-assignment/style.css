@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    background-color: #1A187A;
+}
+.logo{
+    max-height: 25px;
+}
+
+
+
+
+.carousel-inner{
+    /* height: 500px; */
+    /* width: 100%; */
+    background-image:  linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.7)), url("resources/bg.jpg");
+    background-size: cover;
+}
+.carousel-item{
+    height: 400px;
+    justify-items: center;
+    align-items: center;
+    /* padding: 10%; */
+    text-align: center;
+    /* object-fit: cover; */
+    
+}
+.carousel-item img{
+    /* border: 1px solid red; */
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* .des{
+    border: 1px solid red;
+} */
+
+
+
+
+.boximg{
+    width: 300px;
+    object-fit: cover;
+}
+
+.boxdes{
+    /* border: 1px solid red; */
+    /* min-width: 400px; */
+    /* height: 400px; */
+}
+
+.boxcontainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-auto-flow: dense;
+}
+.box1{
+    /* background-color: orange; */
+    grid-column: span 3;
+    grid-row: span 2;
+}
+.box2{
+    background-color: #EDEDED;
+    grid-column: span 2;
+    grid-row: span 4;
+}
+.box3{
+    background-color: #ADC2D7;
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+@media only screen and  (max-width: 768px){
+    .boxcontainer{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-auto-flow: dense;
+    }
+    .box1{
+        grid-row: span 1;
+    }
+    .box2{
+        grid-row: span 1;
+    }
+    .box3{
+        grid-row: span 1;
+    }
+}
+
+
+
+
+.catagory{
+    gap: 15px;
+}
+.mini-card{
+    /* border: 1px solid red; */
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: #bdbcbc;
+}
+.mini-icon{
+    font-size: 30px;
+}
+.item-card{
+    /* max-width: 200px;
+    max-height: 300px; */
+    background-color: #eaeaea;
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+}
+.card-img{
+    /* border: 1px solid red; */
+    width: 100px;
+    height: 100px;
+}
+.sale{
+    background-color: #958AD4;
+}
+.sale-img{
+    width: 300px;
+    object-fit: contain;
+}
+.footer{
+    background-color: black;
+}
+.footer-img{
+    width: 300px;
+    object-fit: contain;
+}
+
