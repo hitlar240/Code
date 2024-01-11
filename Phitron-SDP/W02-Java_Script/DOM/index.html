@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    
+    <h1 class="title">DOM</h1>
+    <h1 class="title">Document Object Model 1</h1>
+    <h1 class="title" id="title2">Document Object Model 2</h1>
+    <h1 class="title">Document Object Model 3</h1>
+
+    <img id="img1" src="https://hermes.dio.me/articles/cover/f3b3ba36-5377-4a95-8068-f1b09bec56c7.png" alt="DOM">
+
+    <p id="des1">DOM is a way to represent the webpage in a structured hierarchical way so that it will become easier for programmers and users to glide through the document. It's a cross-platform and language-independent interface that treats an HTML or XML document as a tree structure wherein each node is an object representing a part of the document. The DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node contains objects</p>
+
+
+    <div id="parent1" class="parent">
+        <div class="child">child-1</div>
+        <div class="child">
+            <h2>child-2</h2>
+            <h2>child-a</h2>
+            <h2>child-b</h2>
+        </div>
+        <div class="child">child-3</div>
+    </div>
+
+    
+    <!-- <input id="input1" type="text" value="tom"> -->
+    <!-- <input id="input1" type="text" placeholder="Name"> -->
+    <input onblur="blurInput()" id="input1" type="text" placeholder="Name">
+
+    <!-- <button  id="clk-btn">create</button> -->
+    <button onclick="clickInput()" id="clk-btn">create</button>
+
+
+<!-- script file -->
+    <script>
+        // alert("Welcome,")
+    </script>
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    padding: 20px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.box{
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    box-shadow: 5px 5px 25px gray;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.diposit{
+    background-color: rgb(0, 228, 0);
+}
+.withdraw{
+    background-color: rgb(255, 88, 33);
+}
+.balance{
+    background-color: rgb(16, 108, 255);
+}
+
+.input-container{
+    background-color: lightgrey;
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    
+}
+.input-box{
+    background-color: rgb(255, 173, 129);
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    /* padding: 20px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.in-fld{
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+.btn{
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 5px 5px 25px gray;
+    border: none;
+    border-radius: 7px;
+    font-size: 20px;
+    color: white;
+}
+.diposit-btn{
+    background-color: rgba(0, 228, 0, 0.831);
+}
+.withdraw-btn{
+    background-color: rgb(255, 40, 33);
+}

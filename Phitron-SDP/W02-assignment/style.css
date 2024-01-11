@@ -1,0 +1,38 @@
+
+.v-card{
+    width: 300px;
+    height: 330px;
+    /* border: 1px solid red; */
+}
+
+.thumbnail-container{
+    position: relative;
+}
+
+.posted{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    font-size: 12px;
+}
+
+.thumbnail{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.prifile-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+h6{
+    font-weight: bold;
+}
