@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+{% comment %} extend parent {% endcomment %}
+{% comment %} {{ block.super}}  {% endcomment %}
+
+    <h1>{{id.name}}</h1>
+
+    <h1>app_01 home page</h1>
+    {% comment %} <img src="img03.jpg" alt="app-img"> {% endcomment %}
+    <img src={% static "image/img03.jpg" %} alt="app-img">
+    <h1>dkfjdslk</h1>
+
+
+    {% comment %} table {% endcomment %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">UserId</th>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Body</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for item in data %}
+        <tr>
+            {% comment %} <th scope="row">3</th> {% endcomment %}
+            <td>{{ item.userId }}</td>
+            <td>{{ item.id}}</td>
+            <td>{{ item.title}}</td>
+            <td>{{ item.body}}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+{% endblock content %}
+

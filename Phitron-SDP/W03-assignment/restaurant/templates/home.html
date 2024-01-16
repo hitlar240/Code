@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% comment %} override content {% endcomment %}
+{% block content %}
+
+<div class='row container m-auto p-5 d-flex justify-content-center align-items-center'>
+    <div class="col-6 p-4 gap-3 rounded-5 text-center text-white">
+        <h1 >Restaurant for <span class='text-primary'>CREATIVE</span> people</h1>
+        <h4 class='mt-5'>share your <span class='text-success'>CREATIVE</span> idea and grab food for <span class='text-danger'>FREE!!!</span></h4>
+    </div>
+    <img class='col-6 rounded-circle bg-warning' src={% static "image/restaurant-logo.png" %} alt="logo">
+</div>
+
+{% endblock content %}

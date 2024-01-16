@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app/home</title>
+</head>
+<body>
+    <h1>app home</h1>
+
+{% comment %} value {% endcomment %}
+    <h2>Name: {{name}}</h2>
+    <h2>Roll: {{roll}}</h2>
+    <h2>Age: {{age}}</h2>
+
+{% comment %} conditional rendering {% endcomment %}
+    {% if  age >= 18 %}
+        <h3>you are Adult</h3>
+    {% elif age >= 10 and age < 18 %}
+        <h3>you are Youth</h3>
+    {% else %}
+        <h3>you are Baby</h3>
+    {% endif %}
+
+{% comment %} for loop {% endcomment %}
+    {% for i in courses %}
+        <h2>ID:{{i.id}} Course:{{i.course_name}} Fee:{{i.fee}}</h2>
+    {% endfor %}
+
+
+{% comment %} length filter {% endcomment %}
+    <h1>List: {{lst}}</h1>
+    <h1>List Length: {{ lst | length }}</h1>
+    <h1>Empty Length: {{ empty | length }}</h1>
+
+{% comment %} join filter {% endcomment %}
+    <h1>Joined List: {{ lst | join:'+' }}</h1>
+
+{% comment %} date filter {% endcomment %}
+    <h1>Date: {{ today | date:"D d M Y" }}</h1>
+
+{% comment %} default filter {% endcomment %}
+    {% comment %} <h1>Empty: {{ empty | default: "nothing here" }}</h1> {% endcomment %}
+
+{% comment %} Truncatechars Filter {% endcomment %}
+    <h1>Truncatechars: {{ "Lorem ipsum dolor sit amet consectetur adipisicing elit" | truncatechars:9 }}</h1>
+
+{% comment %} Truncatewords Filter {% endcomment %}
+    <h1>Truncatewords: {{ "Lorem ipsum dolor sit amet consectetur adipisicing elit" | truncatewords:3 }}</h1>
+
+
+
+</body>
+</html>

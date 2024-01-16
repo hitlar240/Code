@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+{% comment %} extend parent {% endcomment %}
+{{ block.super}} 
+
+    <h1>this is home page</h1>
+    {% comment %} <img src="static/img02.jpg" alt="img"> {% endcomment %}
+    <img src={% static "img02.jpg" %} alt="img">
+
+{% endblock content %}
