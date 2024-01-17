@@ -8,7 +8,7 @@
 
         {% for meal in categories %}
 
-            <div class="card border-secondary p-2 rounded-4 bg-warning" style="width: 18rem;">
+            <div class="meal-card card p-2 rounded-4 bg-warning" style="width: 18rem;">
                 <img src={{meal.strCategoryThumb}} class="card-img-top" alt="meal">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -16,6 +16,30 @@
                         <h5 class="card-title text-secondary">ID: {{meal.idCategory}}</h5>
                     </div>
                   <p class="card-text">{{meal.strCategoryDescription | truncatewords:10 }}</p>
+                  <!-- Button trigger modal -->
+                  <div class="text-center">
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#id{{meal.idCategory}}">
+                          Details
+                      </button>
+                  </div>
+                
+                    <!-- Modal -->
+                    <div class="modal fade"  id="id{{meal.idCategory}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                {{meal.strCategoryDescription}}
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
               </div>
 

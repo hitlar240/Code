@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Filters</title>
+</head>
+<body>
+
+    <h1>Syntax: variable_name | filter_name</h1>
+
+capitalize the first character of the value
+    <h2>Name: {{name | capfirst }}</h2>
+
+convert a string into titlecase by making words start with an uppercase character
+    <h2>Name: {{name | title }}</h2>
+
+return a slice of the list
+    <h2>Name: {{name | slice:"1:5" }}</h2>
+
+remove all values of arg from the given string
+    <h2>Name: {{name | cut:" " }}</h2>
+
+add an argument to the value
+    <h2>Roll: {{roll | add:"240"}}</h2>
+
+    <h2>Today: {{today}}</h2>
+format a date according to the given formats
+    <h2>Today: {{ today | date:"D d M Y" }}</h2>
+    <h2>Time: {{ today | time:"H:i" }}</h2>
+
+return the length of the value
+    <h2>Courses Length: {{ courses | length }}</h2>
+
+takes a list of dictionaries and returns that list sorted by the key given in the argument
+    <h2>Courses sorted by title: {{ courses | dictsort:"title" }}</h2>
+
+join a list with a string
+    <h2>Join List: {{ lst | join:'+' }}</h2>
+
+</body>
+</html>

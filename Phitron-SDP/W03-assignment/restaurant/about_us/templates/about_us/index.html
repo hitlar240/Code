@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 
+
+{% load static %}
+
 {% block content %}
 
-<h1>About Us page...</h1>
+<div class="about-us container m-auto mt-5 p-5 gap-5 rounded-4 d-flex flex-wrap justify-content-center align-items-center">
+    <img class="profile-img rounded-circle" src={% static "image/me.jpg" %} alt="me">
+    <div class="about-des p-5 d-flex flex-column gap-2 text-white">
+        <h1 class=''>About Us</h1>
+        <p >When faced with hunger and financial constraints, ingenuity becomes our essential tool for survival. We provide complimentary meals for those with imaginative minds but empty pockets because we firmly believe that hunger and poverty should not hinder our ability to think creatively. Come, share a meal, and unleash your dreams.</p>
+        <p class='fs-5 fst-italic'>"If you are starving, then you need to be creative"</p>
+        <h6 class='text-end fst-italic'>- Tanvir Ahmed, Owner, Fa0-Khao</h6>
+    </div>
+    
+</div>
 
 {% endblock content %}
