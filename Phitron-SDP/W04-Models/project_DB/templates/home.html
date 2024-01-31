@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>home page...</h1>
+
+<h2 class="text-center text-danger">Students' DataBase</h2>
+<table class="table table-dark table-striped container">
+  <thead>
+    <tr>
+      <th scope="col">Roll</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Father's Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stu in data %}
+    <tr>
+      {% comment %}
+      <th scope="row">1</th>
+      {% endcomment %}
+      <td>{{stu.roll}}</td>
+      <td>{{stu.name}}</td>
+      <td>{{stu.address}}</td>
+      <td>{{stu.fathers_name}}</td>
+      <td><a class="btn btn-danger" href={% url "delete_stu" stu.roll %}>Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
