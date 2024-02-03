@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>musician home page...</h1>
+
+<form action="" method='post' class='w-50 m-auto'>
+    {% load crispy_forms_tags %}
+    {% csrf_token %}
+    {{form | crispy}}
+    <input type="submit" value="Submit" class='btn btn-primary'>
+</form>
+
+{% endblock content %}
