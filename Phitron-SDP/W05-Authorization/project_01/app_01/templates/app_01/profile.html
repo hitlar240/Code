@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>profile page...</h1>
+
+<h2>welcome, {{user.username}}</h2>
+{% comment %} <h2>password, {{user.password}}</h2> {% endcomment %}
+<a class='btn btn-primary' href={% url "changedata" %}>Edit info</a>
+<a class='btn btn-warning' href={% url "passchange" %}>Change Password</a>
+
+{% if messages %}
+    {% for msg in messages %}
+        <h1 {% if msg.tags %}class='text-success'{% endif %}>{{msg}}</h1>  
+    {% endfor %}
+{% endif %}
+
+{% endblock content %}

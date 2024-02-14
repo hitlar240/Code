@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<h1>home page...</h1>
+
+{% for msg in messages %}
+    <h2 class='text-{{msg.tags}}'>{{msg}}</h2>
+{% endfor %}
+
+{% for post in posts %}
+    <div class="card w-50 m-auto mb-5">
+        <div class="card-header bg-success ">
+            {% for cat in post.category.all %}
+                <button class='btn btn-sm btn-success'>{{cat.name}}</button>
+            {% endfor %}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.content}}</p>
+            <h6>Author: {{post.author.name}}</h6>
+            <div class="text-end">
+                <a class='btn btn-sm btn-primary' href={% url "edit_post" post.id %}>Edit</a>
+                <a class='btn btn-sm btn-danger' href={% url "delete_post" post.id %}>Delete</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+
+{% endblock content %}
