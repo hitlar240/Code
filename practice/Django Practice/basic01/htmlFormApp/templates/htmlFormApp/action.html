@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h2 class='text-success'>...</h2>
+<h2 class='text-danger'>...</h2>
+
+<h1>----Action POST Form----</h1>
+
+
+
+<form class='container m-auto' method='post' action=" {% url "redirect_page" %}">
+    
+    {% csrf_token %}
+
+    <div class='mb-3'>
+        <label for="">Num1: </label>
+        <input type="text" name="value1" value="{{n1}}">
+    </div>
+
+    <div class='mb-3'>
+        <label for="">Num2: </label>
+        <input type="text" name="value2" value={{n2}}>
+    </div>
+
+    <div class="mb-3">
+        <!-- reload page with inserted values | takes values from the url -->
+        <input type="submit" value="Submit">
+        {% comment %} <button type='submit'>Submit</button> {% endcomment %}
+    </div>
+
+    <div class="mb-3">
+        <label for="">Sum = </label>
+        <input type="text" value={{sum}}>
+    </div>
+
+</form>
+
+
+
+
+{% endblock content %}

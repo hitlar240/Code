@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3 class='w-50 m-auto mt-4'>Are you sure?!</h3>
+
+<form action="" method='post' class='w-50 m-auto mt-4'>
+    {% csrf_token %}
+    {{form | crispy}}
+    <input type="submit" value="Delete" class='btn btn-danger mb-5'>
+</form>
+
+{% endblock content %}

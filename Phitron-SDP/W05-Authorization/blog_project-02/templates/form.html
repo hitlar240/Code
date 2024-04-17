@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h2 class='text-center p-3'>{{type}} Form</h2>
+
+
+{% comment %} {% for msg in messages %}
+    <h2 class='text-{{msg.tags}}'>{{msg}}</h2>
+    <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            {{msg}}
+          </div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+{% endfor %} {% endcomment %}
+
+{% comment %} <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        hhhhhhhhhhhhhhhhhhh
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div> {% endcomment %}
+
+<form action="" method='post' class='w-50 m-auto'>
+    {% csrf_token %}
+    {{form | crispy}}
+    {% comment %} {% for field in form %}
+        {{filed.labels}}
+        {{filed}}
+    {% endfor %} {% endcomment %}
+    <input type="submit" value="Submit" class='btn btn-primary mb-5'>
+</form>
+
+{% endblock content %}

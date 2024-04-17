@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>----User Form----</h1>
+
+<form class='container m-auto' action="">
+
+    {% csrf_token %}
+    {{form}}
+
+    {% comment %} <input type="submit" value="Submit"> {% endcomment %}
+    <button type='submit'>Submit</button>
+
+</form>
+
+{% endblock content %}

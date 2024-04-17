@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form class='container m-auto' method='post' action="">
+    {% csrf_token %}
+
+    <label for="">Subject1</label>
+    <input type="number" name="sub1" value={{m1}}>
+
+    <label for="">Subject2</label>
+    <input type="number" name="sub2" value={{m2}}>
+
+    <label for="">Subject3</label>
+    <input type="number" name="sub3" value={{m3}}>
+
+    <input class='btn btn-sm btn-primary' type="submit" value="Submit">
+
+    <div>
+        <label for="">Total</label>
+        <input type="number" value={{total}}>
+        
+        <label for="">Average</label>
+        <input type="number" value={{avg}}>
+
+        <label for="">Percentage</label>
+        <input type="number" value={{per}}>
+
+    </div>
+    
+    <div>
+        <label for="">GPA</label>
+        <input type="number" value={{gpa}}>
+        
+        <label for="">Grade</label>
+        <input type="text" value={{grade}}>
+    </div>
+
+</form>
+
+
+{% endblock content %}

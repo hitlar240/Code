@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>---App-02 Home Page---</h1>
+
+<h2>Customer: <span style="color: red">{{customer}}</span></h2>
+<h2>Items: <span style="color: green">{{items}}</span></h2>
+
+  {% for item in items %} {% comment %}
+  <h2>Item: <span style="color: blue">{{item}}</span></h2>
+    {% endcomment %}
+    <h2>Item-{{forloop.counter}}: <span style="color: blue">{{item}}</span></h2>
+    {% comment %}
+    <h2>
+      Item-{{forloop.counter0}}: <span style="color: blue">{{item}}</span>
+    </h2>
+    {% endcomment %} {% comment %}
+    <h2>
+      Item-{{forloop.revcounter}}: <span style="color: blue">{{item}}</span>
+    </h2>
+    {% endcomment %} {% comment %}
+    <h2>
+      Item-{{forloop.revcounter0}}: <span style="color: blue">{{item}}</span>
+    </h2>
+    {% endcomment %} {% comment %}
+    <h2>Item-{{forloop.first}}: <span style="color: blue">{{item}}</span></h2>
+    {% endcomment %} {% comment %}
+    <h2>Item-{{forloop.last}}: <span style="color: blue">{{item}}</span></h2>
+    {% endcomment %} 
+  {% endfor %}
+
+    <br>
+    {% if students|length %}
+    <h2 style='color: green;'>Total Students: {{ students | length }}</h2>
+    {% else %}
+    <h2 style='color: red;'>No Student!!</h2>
+    {% endif %}
+    
+    <table border="1" cellpadding="10px">
+      <tr style="background-color: yellow">
+        <th>Roll</th>
+        <th>Name</th>
+        <th>Mark</th>
+      </tr>
+      {% for stu in students %}
+      <tr>
+        <td>{{stu.roll}}</td>
+        <td>{{stu.name}}</td>
+        {% if stu.mark >= 33 and stu.mark <= 100 %}
+        <td>{{stu.mark}}</td>
+        {% elif stu.mark >= 0 and stu.mark < 33 %}
+        <td style="color: red">{{stu.mark}}</td>
+        {% else %}
+        <td style="color: blue">Absent</td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
+    
+  
+{% endblock content %}

@@ -1,0 +1,8 @@
+body{
+    background-color: rgb(218, 255, 202);
+}
+
+nav .active{
+    background-color: rgb(131, 101, 214);
+    border-radius: 5px;
+}

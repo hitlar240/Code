@@ -4,4 +4,5 @@ from posts.models import Posts
 class PostForm(forms.ModelForm):
     class Meta:
         model = Posts
-        fields = '__all__'
+        # fields = '__all__'
+        exclude = ['author']

@@ -1,33 +1,52 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
+{% comment %} <h1>home page...</h1> {% endcomment %}
 
+<div class='container m-auto d-flex justify-content-center align-items-center gap-5 mt-5'>
+    <h1 class='text-success'>Phitron Blog Site</h1>
+    <img class='rounded-3 ' src={% static "blog.jpg" %} alt="">
+</div>
 
-<h1>home page...</h1>
-
-{% for msg in messages %}
-    <h2 class='text-{{msg.tags}}'>{{msg}}</h2>
-{% endfor %}
-
-{% for post in posts %}
-    <div class="card w-50 m-auto mb-5">
-        <div class="card-header bg-success ">
-            {% for cat in post.category.all %}
-                <button class='btn btn-sm btn-success'>{{cat.name}}</button>
-            {% endfor %}
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.content}}</p>
-            <h6>Author: {{post.author.name}}</h6>
-            <div class="text-end">
-                <a class='btn btn-sm btn-primary' href={% url "edit_post" post.id %}>Edit</a>
-                <a class='btn btn-sm btn-danger' href={% url "delete_post" post.id %}>Delete</a>
+<div class="d-flex flex-wrap p-5">
+    <div class="col-2 bg-success p-4 rounded-3">
+        <h4 class='text-white'>Categories</h4>
+        {% for category in categories %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id={{category.id}}>
+                <label class="form-check-label" for={{category.id}}>
+                <a class='text-white text-decoration-none' href={% url "category_slug" category.slug %}>{{category.name}}</a>
+                </label>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-10">
+        <h3 class='text-primary text-center mb-3'>{{posts | length}} posts found</h3>
+        {% for post in posts %}
+        <div class="card w-50 m-auto mb-5">
+            <div class="card-header bg-success ">
+                {% for cat in post.category.all %}
+                    <button class='btn btn-sm btn-success'>{{cat.name}}</button>
+                {% endfor %}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.content}}</p>
+                <h6>Author: {{post.author.first_name}} {{post.author.last_name}}</h6>
+                {% comment %} <div class="text-end">
+                    <a class='btn btn-sm btn-primary' href={% url "edit_post" post.id %}>Edit</a>
+                    <a class='btn btn-sm btn-danger' href={% url "delete_post" post.id %}>Delete</a>
+                </div> {% endcomment %}
             </div>
         </div>
+    {% endfor %}
     </div>
-{% endfor %}
+</div>
+
+
 
 
 {% endblock content %}

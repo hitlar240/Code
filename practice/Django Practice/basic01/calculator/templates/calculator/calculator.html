@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>----Calculator----</h1>
+
+<form class="container m-auto" method='post' action="">
+    {% csrf_token %}
+
+    <div>
+        <label for="">Num1</label>
+        <input type="text" name='val1' value={{n1}}>
+        
+        <label for="">Operation</label>
+        <select name="opt" id="">
+            <option value="+" {% if op == '+' %}selected{% endif %}>+</option>
+            <option value="-" {% if op == '-' %}selected{% endif %}>-</option>
+            <option value="*" {% if op == '*' %}selected{% endif %}>*</option>
+            <option value="/" {% if op == '/' %}selected{% endif %}>/</option>
+            <option value="%" {% if op == '%' %}selected{% endif %}>%</option>
+        </select>
+        {% comment %} <input type="text" name='opt' value={{op}}> {% endcomment %}
+        
+        <label for="">Num2</label>
+        <input type="text" name='val2' value={{n2}}>
+    
+        <input class='btn btn-sm btn-primary' type="submit" value="Calculate">
+
+        <label for="">Result</label>
+        <input type="text" value={{ans}}>
+    </div>
+
+
+</form>
+
+{% endblock content %}

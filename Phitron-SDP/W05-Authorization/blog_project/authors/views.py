@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from authors import forms
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from posts.models import Posts
 
 # Create your views here.
 def register(req):
@@ -14,7 +15,7 @@ def register(req):
             messages.success(req, 'Account Created Successfully!')
             return redirect('register')
     author_form = forms.RegForm()    
-    return render(req, 'authors/form.html', {'form': author_form, 'type':'Registration'})
+    return render(req, 'form.html', {'form': author_form, 'type':'Registration'})
 
 
 def user_login(req):
@@ -27,20 +28,45 @@ def user_login(req):
             if user is not None:
                 login(req, user)
                 messages.success(req, 'Logged in Successfully!')
-                return redirect('home')
+                return redirect('profile')
             else:
+                messages.danger(req, 'Wrong Username or Password!')
                 return redirect('login')
-            
     login_form =  AuthenticationForm()
-    return render(req, 'authors/form.html', {'form':login_form, 'type':'Login'})
+    return render(req, 'form.html', {'form':login_form, 'type':'Login'})
+
+def user_logout(req):
+    logout(req)
+    messages.success(req, 'Logged out Successfully!')
+    return redirect('login')
+
+def profile(req):
+    # posts = Posts.objects.all()
+    posts = Posts.objects.filter(author= req.user)
+    return render(req, 'authors/profile.html', {'posts': posts})
 
 @login_required
-def profile(req):
+def edit_profile(req):
     if req.method == "POST":
         profile_form = forms.ChangeDataForm(req.POST, instance=req.user)
         if profile_form.is_valid():
             profile_form.save()
             messages.success(req, 'Profile Updated!!')
-            return redirect('home')
+            return redirect('edit_profile')
     profile_form = forms.ChangeDataForm(instance=req.user)
-    return render(req, 'authors/profile.html', {'form':profile_form})
+    return render(req, 'form.html', {'form':profile_form, 'type':'Edit Profile'})
+
+
+def change_pass(req):
+    if req.method == "POST":
+        # pass_form = PasswordChangeForm(req.user, data=req.POST)
+        pass_form = SetPasswordForm(req.user, data=req.POST)
+        if pass_form.is_valid():
+            pass_form.save()
+            update_session_auth_hash(req, pass_form.user)
+            messages.success(req, 'Password Updated Successfully!')
+            return redirect('profile')
+    # pass_form = PasswordChangeForm(user=req.user)    
+    pass_form = SetPasswordForm(user=req.user)    
+    return render(req, 'form.html', {'form': pass_form, 'type':'Change Password'})
+
